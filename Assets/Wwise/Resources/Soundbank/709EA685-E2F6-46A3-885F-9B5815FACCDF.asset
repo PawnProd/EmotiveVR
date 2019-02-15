@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3a09553b084c754889c3872a612f827, type: 3}
+  m_Name: 709EA685-E2F6-46A3-885F-9B5815FACCDF
+  m_EditorClassIdentifier: 
+  objectName: IntroSoundBank
+  id: 886154420
+  guid: 709EA685-E2F6-46A3-885F-9B5815FACCDF

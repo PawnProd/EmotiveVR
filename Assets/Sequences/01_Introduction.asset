@@ -14,3 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 32900000, guid: d9a508b3aefec754d9bbe1b87efb7087, type: 3}
   rt: {fileID: 8400000, guid: 53ae36cdfab4f7b40bfd6031977931f3, type: 2}
+  showEmotionalBar: 0
+  addScene: 0
+  waitInteraction: 0
+  sceneNameToLoad: 
+  delayBeforeNextSequence: 0
+  sounBankName: IntroSoundBank
+  audioEvtName: PlayIntroduction1

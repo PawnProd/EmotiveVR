@@ -18,6 +18,7 @@ public class DirectorSequencer : MonoBehaviour
     public Camera cam;
     public VideoPlayer player;
     public GameObject emotionalBar;
+    public AudioManager audioManager;
 
     public bool play = false;
     public bool waitEndScene = false;
@@ -38,13 +39,18 @@ public class DirectorSequencer : MonoBehaviour
 
     private void Start()
     {
+        // Add a callback when the video is finished
         player.loopPointReached += EndVideo;
         startRotation = cam.transform.rotation;
+
+        // Read all the valence data in the csv file
         DataReader.Init("Data_Valence.csv");
+        SetNextVideo();
     }
 
     private void Update()
     {
+        // If we load an additional scene and we didn't wait an interaction
         if(waitEndScene && !activeRaycast)
         {
             timer += Time.deltaTime;
@@ -60,6 +66,7 @@ public class DirectorSequencer : MonoBehaviour
         if(activeRaycast)
         {
             RaycastHit hit;
+            // We fire a raycast from the camera position to the camera forward
             Debug.DrawRay(cam.transform.position, cam.transform.forward, Color.red);
             if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, Mathf.Infinity))
             {
@@ -84,11 +91,25 @@ public class DirectorSequencer : MonoBehaviour
 
     private void SetNextVideo()
     {
+        // We reset the camera rotation to avoid some bug in the choice scene
         cam.transform.rotation = startRotation;
+
         if(indexSequence < sequences.Count)
         {
             currentSequence = sequences[indexSequence];
 
+            // SETUP AUDIO
+            if (!string.IsNullOrEmpty(currentSequence.sounBankName))
+            {
+                audioManager.LoadSoundBank(currentSequence.sounBankName);
+            }
+
+            if(!string.IsNullOrEmpty(currentSequence.audioEvtName))
+            {
+                audioManager.SetEvent(currentSequence.audioEvtName);
+            }
+
+            // SETUP ADDITIONAL SCENE
             if (currentSequence.addScene)
             {
                 AddScene(currentSequence);
@@ -100,13 +121,16 @@ public class DirectorSequencer : MonoBehaviour
 
             }
 
+            // SETUP VIDEO
             if (currentSequence.clip != null)
             {
                 SetupSequence(currentSequence);
             }
 
+            // SETUP EMOTIONAL BAR
             if(currentSequence.showEmotionalBar)
             {
+                audioManager.SetNewValenceValue(DataReader.GetValence());
                 StartCoroutine(CO_UpdateValenceTime());
             }
 
@@ -116,6 +140,7 @@ public class DirectorSequencer : MonoBehaviour
         
     }
 
+    // Set the sequence to the scene. Update video and render texture and set to the skybox material. Active the bar if it's necessary
     private void SetupSequence(Sequence sequence)
     {
         player.clip = sequence.clip;
@@ -125,8 +150,10 @@ public class DirectorSequencer : MonoBehaviour
         emotionalBar.SetActive(sequence.showEmotionalBar);
     }
 
+    // Callback when the video is finish
     private void EndVideo(VideoPlayer vp)
     {
+        // Check if we can go to the next video
         if(!currentSequence.waitInteraction && currentSequence.delayBeforeNextSequence == 0)
         {
             SetNextVideo();
@@ -134,11 +161,13 @@ public class DirectorSequencer : MonoBehaviour
         
     }
 
+    // Add a range of new sequences in the list (for the choice scene)
     private void AddSequences(List<Sequence> newSequences)
     {
         sequences.InsertRange(indexSequence, newSequences);
     }
 
+    // Load an additional scene in Additive Mode
     private void AddScene(Sequence sequence)
     {
         SceneManager.LoadScene(sequence.sceneNameToLoad, LoadSceneMode.Additive);
@@ -147,22 +176,26 @@ public class DirectorSequencer : MonoBehaviour
         delay = sequence.delayBeforeNextSequence;
     }
 
+    // Unload an scene
     private void RemoveScene()
     {
         SceneManager.UnloadSceneAsync(loadedSceneName);
     }
 
+    // Check if the sequence list contains a sequence
     public bool ContainSequence(Sequence sequence)
     {
         return sequences.Contains(sequence);
     }
 
+    // Update every second the emotional bar if it is active
     IEnumerator CO_UpdateValenceTime()
     {
         while(currentSequence.showEmotionalBar)
         {
             yield return new WaitForSeconds(1);
             DataReader.UpTime();
+            audioManager.SetNewValenceValue(DataReader.GetValence());
         }
 
         yield return null;

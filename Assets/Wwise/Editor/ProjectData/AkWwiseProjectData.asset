@@ -1,0 +1,774 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b549e302d84f6438c654feedcac546, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 9a51a59ac6b14b4393f4455a922c8668
+    m_lastTime: -8586528039734775808
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: b1615b91df186249aed97e215c7469a8
+    m_lastTime: -8586526495994775808
+    List:
+    - name: Headlocked_Reverb
+      guid: f7f97414cd3d7f4fa3fceaf67b2f7d22
+      id: 2327170656
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Headlocked Bus
+        ObjectType: 2
+      - ElementName: Headlocked_Reverb
+        ObjectType: 1
+      Path: Default Work Unit\Master Audio Bus\Headlocked Bus\Headlocked_Reverb
+    - name: KarlMusic_Reverb
+      guid: 0602fd0288431f418558abf9c4d36b66
+      id: 1359398863
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Karl Spatial Hallucination Music Bus
+        ObjectType: 2
+      - ElementName: KarlMusic_Reverb
+        ObjectType: 1
+      Path: Default Work Unit\Master Audio Bus\Karl Spatial Hallucination Music Bus\KarlMusic_Reverb
+    - name: Music_Reverb
+      guid: d8df5afe009910438fd61b5d2db9fd5c
+      id: 2450185101
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Normal Music Bus
+        ObjectType: 2
+      - ElementName: Music_Reverb
+        ObjectType: 1
+      Path: Default Work Unit\Master Audio Bus\Normal Music Bus\Music_Reverb
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: f7760c7108d25d449c01e6bc5e2b47fd
+    m_lastTime: -8586528039754775808
+    List:
+    - name: Choice2SoundBank
+      guid: 566062230b5fc1459ffd33b1d790717e
+      id: 854256009
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Choice2SoundBank
+        ObjectType: 7
+      Path: Default Work Unit\Choice2SoundBank
+    - name: EpiEndSoundBank
+      guid: 16025c2b8b300745837b3bf39cca7b03
+      id: 3192374405
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: EpiEndSoundBank
+        ObjectType: 7
+      Path: Default Work Unit\EpiEndSoundBank
+    - name: FreudSoundBank
+      guid: 39f26c7fde8112469b5b1b9aa63ae66d
+      id: 1916941780
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: FreudSoundBank
+        ObjectType: 7
+      Path: Default Work Unit\FreudSoundBank
+    - name: IntroSoundBank
+      guid: 85a69e70f6e2a346885f9b5815faccdf
+      id: 886154420
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: IntroSoundBank
+        ObjectType: 7
+      Path: Default Work Unit\IntroSoundBank
+    - name: KarlSoundBank
+      guid: 30ff0c56be633c43a40cb3883ecd6f9f
+      id: 237236122
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: KarlSoundBank
+        ObjectType: 7
+      Path: Default Work Unit\KarlSoundBank
+    - name: OpenProSoundBank
+      guid: 5a1581726c1501409eb0281525ba2473
+      id: 1053698777
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: OpenProSoundBank
+        ObjectType: 7
+      Path: Default Work Unit\OpenProSoundBank
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 98d7d3733d725244bad399ff9084af40
+    m_lastTime: -8586528039754775808
+    List:
+    - name: GreetingsFromHelsinki
+      guid: 02b7e1ac84d4f543a57d826e4d9c0e6f
+      id: 3698975080
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Common
+        ObjectType: 4
+      - ElementName: GreetingsFromHelsinki
+        ObjectType: 3
+      Path: Default Work Unit\Common\GreetingsFromHelsinki
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PauseAll
+      guid: 966e4c350aad1944a4bea9eb3b25d420
+      id: 4091047182
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Common
+        ObjectType: 4
+      - ElementName: PauseAll
+        ObjectType: 3
+      Path: Default Work Unit\Common\PauseAll
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayBeep
+      guid: d4249d34f97e6142b8ca86c4391b609f
+      id: 3043762247
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Common
+        ObjectType: 4
+      - ElementName: PlayBeep
+        ObjectType: 3
+      Path: Default Work Unit\Common\PlayBeep
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayBreathing
+      guid: 3f3bba36204499498930740e73513ee2
+      id: 3934384867
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Common
+        ObjectType: 4
+      - ElementName: PlayBreathing
+        ObjectType: 3
+      Path: Default Work Unit\Common\PlayBreathing
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayChoixMusic
+      guid: b32d28cbcdc47d4ebb6687076bac4adc
+      id: 3899680803
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 04_ChoixSequence
+        ObjectType: 4
+      - ElementName: PlayChoixMusic
+        ObjectType: 3
+      Path: Default Work Unit\04_ChoixSequence\PlayChoixMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayChoixMusic_01
+      guid: d24e099510c6ae419df2c56a74b6112c
+      id: 966800407
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 4
+      - ElementName: PlayChoixMusic_01
+        ObjectType: 3
+      Path: Default Work Unit\Music\PlayChoixMusic_01
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayChoixMusicNoLoop
+      guid: c071214bfa11ec408cd41ab40c16a624
+      id: 3397257820
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 04_ChoixSequence
+        ObjectType: 4
+      - ElementName: PlayChoixMusicNoLoop
+        ObjectType: 3
+      Path: Default Work Unit\04_ChoixSequence\PlayChoixMusicNoLoop
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayEndMusic
+      guid: 4776981f6886bb428bc853358559b82a
+      id: 1149452795
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 08_EndCredits
+        ObjectType: 4
+      - ElementName: PlayEndMusic
+        ObjectType: 3
+      Path: Default Work Unit\08_EndCredits\PlayEndMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayEndMusic_01
+      guid: fcbea86af6be6e45a4e41c0a28fb43da
+      id: 3388958447
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 4
+      - ElementName: PlayEndMusic_01
+        ObjectType: 3
+      Path: Default Work Unit\Music\PlayEndMusic_01
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayEpilogue
+      guid: abc7f5abbc820a41b7c63859532b0d29
+      id: 2664430727
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 07_Epilogue
+        ObjectType: 4
+      - ElementName: PlayEpilogue
+        ObjectType: 3
+      Path: Default Work Unit\07_Epilogue\PlayEpilogue
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayFreudAudio
+      guid: 52cedec2197acb4eb12ce98dac5a7753
+      id: 1437163987
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 05_FreudSequence
+        ObjectType: 4
+      - ElementName: PlayFreudAudio
+        ObjectType: 3
+      Path: Default Work Unit\05_FreudSequence\PlayFreudAudio
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayFreudAudioB
+      guid: 6587cca04349c842929a9e41b266846c
+      id: 2896494411
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 05_FreudSequence
+        ObjectType: 4
+      - ElementName: PlayFreudAudioB
+        ObjectType: 3
+      Path: Default Work Unit\05_FreudSequence\PlayFreudAudioB
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayFreudMusic
+      guid: 14efcc55e4a94b479c80495804ffb520
+      id: 2051861868
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 05_FreudSequence
+        ObjectType: 4
+      - ElementName: PlayFreudMusic
+        ObjectType: 3
+      Path: Default Work Unit\05_FreudSequence\PlayFreudMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayHeartbeat
+      guid: 80031244b9e68d4dbe2bda44a8757ee6
+      id: 4284960165
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Common
+        ObjectType: 4
+      - ElementName: PlayHeartbeat
+        ObjectType: 3
+      Path: Default Work Unit\Common\PlayHeartbeat
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayIntroduction1
+      guid: 14942fc4fb4df044b4ee58eb1932d939
+      id: 3972833680
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 01_Introduction
+        ObjectType: 4
+      - ElementName: PlayIntroduction1
+        ObjectType: 3
+      Path: Default Work Unit\01_Introduction\PlayIntroduction1
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayIntroduction2
+      guid: f120c48b4525b643ab71a93f5668fc0f
+      id: 3972833683
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 01_Introduction
+        ObjectType: 4
+      - ElementName: PlayIntroduction2
+        ObjectType: 3
+      Path: Default Work Unit\01_Introduction\PlayIntroduction2
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayKarlAudio
+      guid: 94985d00e959d2418b3a9069517f2ab5
+      id: 3334910481
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 06_KarlSequence
+        ObjectType: 4
+      - ElementName: PlayKarlAudio
+        ObjectType: 3
+      Path: Default Work Unit\06_KarlSequence\PlayKarlAudio
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayKarlAudioB
+      guid: faa89872c0936341930653d3c64ad370
+      id: 4224340129
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 06_KarlSequence
+        ObjectType: 4
+      - ElementName: PlayKarlAudioB
+        ObjectType: 3
+      Path: Default Work Unit\06_KarlSequence\PlayKarlAudioB
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayKarlMusic
+      guid: 041deb31964aee4e91055c34aa930cd1
+      id: 4236082638
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 06_KarlSequence
+        ObjectType: 4
+      - ElementName: PlayKarlMusic
+        ObjectType: 3
+      Path: Default Work Unit\06_KarlSequence\PlayKarlMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayOldFreud1
+      guid: b8930459814e4242997c946baca4fae0
+      id: 2922769081
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 04_ChoixSequence
+        ObjectType: 4
+      - ElementName: PlayOldFreud1
+        ObjectType: 3
+      Path: Default Work Unit\04_ChoixSequence\PlayOldFreud1
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayOldFreud1_single
+      guid: ad5a6900f35b4540bdc76ca08c568a04
+      id: 3655101832
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 04_ChoixSequence
+        ObjectType: 4
+      - ElementName: PlayOldFreud1_single
+        ObjectType: 3
+      Path: Default Work Unit\04_ChoixSequence\PlayOldFreud1_single
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayOldFreud2
+      guid: b067dca0226c7747b0f734d6f125d2f9
+      id: 2922769082
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 04_ChoixSequence
+        ObjectType: 4
+      - ElementName: PlayOldFreud2
+        ObjectType: 3
+      Path: Default Work Unit\04_ChoixSequence\PlayOldFreud2
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayPrologue
+      guid: facf70ff40fa7a47adaa0555e668651b
+      id: 1486414576
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 03_Prologue
+        ObjectType: 4
+      - ElementName: PlayPrologue
+        ObjectType: 3
+      Path: Default Work Unit\03_Prologue\PlayPrologue
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayPrologueNoLoop
+      guid: 52bc661776647746afeef982a48c4ea6
+      id: 862099911
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 03_Prologue
+        ObjectType: 4
+      - ElementName: PlayPrologueNoLoop
+        ObjectType: 3
+      Path: Default Work Unit\03_Prologue\PlayPrologueNoLoop
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayPrologueNoMusic
+      guid: 3e015a20d157644db6e9d5efeb4bbff8
+      id: 3041392870
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 03_Prologue
+        ObjectType: 4
+      - ElementName: PlayPrologueNoMusic
+        ObjectType: 3
+      Path: Default Work Unit\03_Prologue\PlayPrologueNoMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayTitleMusic
+      guid: 337caa1454e8604e98fb118885740cd9
+      id: 718394488
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 02_Titles
+        ObjectType: 4
+      - ElementName: PlayTitleMusic
+        ObjectType: 3
+      Path: Default Work Unit\02_Titles\PlayTitleMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayTitleMusic_01
+      guid: fffe00be0f016e419ba222ada7d76b0c
+      id: 6279694
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 4
+      - ElementName: PlayTitleMusic_01
+        ObjectType: 3
+      Path: Default Work Unit\Music\PlayTitleMusic_01
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: ResumeAll
+      guid: 67d2e14083b8844198a43a46bd5cd4e7
+      id: 3240900869
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Common
+        ObjectType: 4
+      - ElementName: ResumeAll
+        ObjectType: 3
+      Path: Default Work Unit\Common\ResumeAll
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: StopAll
+      guid: 88d933ec7be6bc4e95f2567b44362d35
+      id: 3086540886
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Common
+        ObjectType: 4
+      - ElementName: StopAll
+        ObjectType: 3
+      Path: Default Work Unit\Common\StopAll
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: StopChoixMusic
+      guid: a966d72b77806742a9d3d4d37134f1fa
+      id: 4071506729
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 04_ChoixSequence
+        ObjectType: 4
+      - ElementName: StopChoixMusic
+        ObjectType: 3
+      Path: Default Work Unit\04_ChoixSequence\StopChoixMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: StopIntroduction
+      guid: 7874e2f19ac1d649bf2d5215bdb0d5da
+      id: 172570369
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: 01_Introduction
+        ObjectType: 4
+      - ElementName: StopIntroduction
+        ObjectType: 3
+      Path: Default Work Unit\01_Introduction\StopIntroduction
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 94f7f96622bbdf49915f348f8312e0fe
+    m_lastTime: -8586528039754775808
+    List:
+    - name: AudioVolume
+      guid: 82c755c1a46aa5479f9464c43f161ec0
+      id: 1146284679
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: AudioVolume
+        ObjectType: 13
+      Path: Default Work Unit\AudioVolume
+    - name: ExcitementLevel
+      guid: ce84f9dc2cc7054f860fd855a0b799b4
+      id: 1428440363
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: ExcitementLevel
+        ObjectType: 13
+      Path: Default Work Unit\ExcitementLevel
+    - name: MusicVolume
+      guid: 7244e6c7b6cfd845a3dde8e067c29128
+      id: 2346531308
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: MusicVolume
+        ObjectType: 13
+      Path: Default Work Unit\MusicVolume
+    - name: NeuroThereminVolume
+      guid: 9a15cc77b71da34ab9ced3c4f81812c2
+      id: 1821539562
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: NeuroThereminVolume
+        ObjectType: 13
+      Path: Default Work Unit\NeuroThereminVolume
+    - name: startDelay
+      guid: e8e886d4a140ab4d88f94c954d329f76
+      id: 703117816
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: startDelay
+        ObjectType: 13
+      Path: Default Work Unit\startDelay
+    - name: ValenceLevel
+      guid: 0b22a5eec9080f46adff810aff75b7c9
+      id: 2275494527
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: ValenceLevel
+        ObjectType: 13
+      Path: Default Work Unit\ValenceLevel
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 8ce35a2c02562747a6afc6e8c1ab0135
+    m_lastTime: -8586528039754775808
+    List:
+    - name: AverageEmotion
+      guid: 10ac85d83625504b86479e0eb98adb6d
+      id: 4214977261
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: AverageEmotion
+        ObjectType: 9
+      Path: Default Work Unit\AverageEmotion
+      values:
+      - name: NegativeCalm
+        guid: cdc5fb76957abe40acecb8b2d46cdbfd
+        id: 2993330889
+        PathAndIcons:
+        - ElementName: NegativeCalm
+          ObjectType: 8
+      - name: NegativeExcited
+        guid: 34393adb12ebcc498f40db33cdca2e2a
+        id: 4220012722
+        PathAndIcons:
+        - ElementName: NegativeExcited
+          ObjectType: 8
+      - name: None
+        guid: 8d2b2efaa1d3604486cc362909c1ea9e
+        id: 748895195
+        PathAndIcons:
+        - ElementName: None
+          ObjectType: 8
+      - name: PositiveCalm
+        guid: 18c51f82d4ae34469a2378da5d3c1bf4
+        id: 1699528801
+        PathAndIcons:
+        - ElementName: PositiveCalm
+          ObjectType: 8
+      - name: PositiveExcited
+        guid: 0993884ad39bed4a8d0f0f87d9b65840
+        id: 3161219322
+        PathAndIcons:
+        - ElementName: PositiveExcited
+          ObjectType: 8
+    - name: Sequence
+      guid: a57a347164e66d4e8b60b43cce462f1e
+      id: 311444866
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Sequence
+        ObjectType: 9
+      Path: Default Work Unit\Sequence
+      values:
+      - name: Hypnosis
+        guid: 27e446e5373fa141904ef90e22419519
+        id: 3204929648
+        PathAndIcons:
+        - ElementName: Hypnosis
+          ObjectType: 8
+      - name: None
+        guid: 7c699716d21d7049930a503ab553f8dd
+        id: 748895195
+        PathAndIcons:
+        - ElementName: None
+          ObjectType: 8
+      - name: Selection
+        guid: 43226cac338dbf468b1274b1db85836f
+        id: 1973847113
+        PathAndIcons:
+        - ElementName: Selection
+          ObjectType: 8
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 72c4afa4c58cab4fa12d23335fac9944
+    m_lastTime: -8586528039754775808
+    List:
+    - name: AverageValence
+      guid: 2108f230334524489204cd28d234f3f0
+      id: 240302138
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: AverageValence
+        ObjectType: 11
+      Path: Default Work Unit\AverageValence
+      values:
+      - name: Negative
+        guid: f856c9ce390f3c4199ce0de148eb238e
+        id: 4219547688
+        PathAndIcons:
+        - ElementName: Negative
+          ObjectType: 10
+      - name: Neutral
+        guid: 119282864f94af43b222ee694e5a52f8
+        id: 670611050
+        PathAndIcons:
+        - ElementName: Neutral
+          ObjectType: 10
+      - name: Positive
+        guid: cb10de9ac2bf8945aed9ff0fb0de6064
+        id: 1192865152
+        PathAndIcons:
+        - ElementName: Positive
+          ObjectType: 10
+    - name: Intensity
+      guid: 850098eb59a03e4c8c156dd952591076
+      id: 2470328564
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Intensity
+        ObjectType: 11
+      Path: Default Work Unit\Intensity
+      values:
+      - name: Fast
+        guid: 407ce373834bb04ea1337551578612d1
+        id: 2965380179
+        PathAndIcons:
+        - ElementName: Fast
+          ObjectType: 10
+      - name: Mid
+        guid: c73405a4694d054c9290f6cfb09db954
+        id: 1182670505
+        PathAndIcons:
+        - ElementName: Mid
+          ObjectType: 10
+      - name: Slow
+        guid: d6c2cd3a7f74f245a5505768bda5c1d5
+        id: 787604482
+        PathAndIcons:
+        - ElementName: Slow
+          ObjectType: 10
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: a5570bb8c5fc8a42988470e2e3670def
+    m_lastTime: -8586528039734775808
+    List: []
+  ExpandedItems:
+  - /EmotiveVR_WWise
+  - /EmotiveVR_WWise/Events
+  - /EmotiveVR_WWise/SoundBanks
+  - /EmotiveVR_WWise/SoundBanks/Default Work Unit
+  autoPopulateEnabled: 1
+  CurrentPluginConfig: 

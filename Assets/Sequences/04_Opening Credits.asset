@@ -15,3 +15,9 @@ MonoBehaviour:
   clip: {fileID: 32900000, guid: 4f340a61e342c3f4f92497a58b6e96da, type: 3}
   rt: {fileID: 8400000, guid: dafe30d3fe1a16248b11f3ce01ede5cf, type: 2}
   showEmotionalBar: 0
+  addScene: 0
+  waitInteraction: 0
+  sceneNameToLoad: 
+  delayBeforeNextSequence: 0
+  sounBankName: OpenProSoundBank
+  audioEvtName: PlayTitleMusic

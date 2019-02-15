@@ -16,15 +16,19 @@ public static class DataReader
     public static void Init(string filename)
     {
         _filename = filename;
+        
         _path = Application.streamingAssetsPath + "/DataValence/" + _filename;
+        Debug.Log(_path);
         ReadDataFromCSV();
+
     }
 
     public static void ReadDataFromCSV()
     {
         string fileData = File.ReadAllText(_path);
         string[] values = fileData.Split('\n');
-        float[] floatValues = Array.ConvertAll<string, float>(values, x => float.Parse(x));
+        
+        float[] floatValues = Array.ConvertAll(values, x => float.Parse(x));
 
         _valenceValues.AddRange(floatValues);
     }

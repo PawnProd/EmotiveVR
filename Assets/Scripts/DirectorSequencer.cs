@@ -29,6 +29,7 @@ public class DirectorSequencer : MonoBehaviour
 
     public float timer = 0;
     public float delay;
+    public float updateValenceTime = 1;
 
     private Quaternion startRotation;
 
@@ -107,7 +108,6 @@ public class DirectorSequencer : MonoBehaviour
                 {
                     activeRaycast = true;
                 }
-
             }
 
             // SETUP VIDEO
@@ -133,6 +133,11 @@ public class DirectorSequencer : MonoBehaviour
             {
                 audioManager.SetNewValenceValue(DataReader.GetValence());
                 StartCoroutine(CO_UpdateValenceTime());
+
+                if(currentSequence.barInfo.Count > 0)
+                {
+                    emotionalBar.GetComponent<EmotionBar>().MapBarInfo(currentSequence.barInfo);
+                }
             }
 
             // SETUP AUDIO
@@ -205,9 +210,11 @@ public class DirectorSequencer : MonoBehaviour
     {
         while(currentSequence.showEmotionalBar)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(updateValenceTime);
             DataReader.UpTime();
-            audioManager.SetNewValenceValue(DataReader.GetValence());
+            float valence = DataReader.GetValence();
+            audioManager.SetNewValenceValue(valence);
+            emotionalBar.GetComponent<EmotionBar>().UpdateEmotionBar(valence);
         }
 
         yield return null;

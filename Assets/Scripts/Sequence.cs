@@ -6,6 +6,16 @@ using UnityEngine.Video;
 [CreateAssetMenu(fileName = "Sequence")]
 public class Sequence : ScriptableObject
 {
+
+    [System.Serializable]
+    public struct BarPositionInfo
+    {
+        public Vector3 position;
+        public Vector3 rotation;
+        public float keyTime;
+    }
+
+
     [Header("Video Data")]
     public VideoClip clip;
     public RenderTexture rt;
@@ -25,4 +35,8 @@ public class Sequence : ScriptableObject
     public string audioEvtName;
     public float delay;
 
+    [Header("Emotional Bar Param")]
+    public List<BarPositionInfo> barInfo;
+
 }
+

@@ -19,5 +19,6 @@ MonoBehaviour:
   waitInteraction: 0
   sceneNameToLoad: 
   delayBeforeNextSequence: 0
-  sounBankName: OpenProSoundBank
+  soundBankName: OpenProSoundBank
   audioEvtName: PlayTitleMusic
+  delay: 0

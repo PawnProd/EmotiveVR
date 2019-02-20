@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 32900000, guid: 7922bc90c25557b4f9f03b62b631f325, type: 3}
   rt: {fileID: 8400000, guid: 8df5dc3aa0f933f469bdf0e4b031c7f3, type: 2}
-  showEmotionalBar: 0
+  showEmotionalBar: 1
   addScene: 0
   waitInteraction: 0
+  clearVideo: 0
   sceneNameToLoad: 
   delayBeforeNextSequence: 0
+  soundBankName: FreudSoundBank
+  audioEvtName: PlayFreudAudioB
+  delay: 0

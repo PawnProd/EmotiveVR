@@ -767,7 +767,6 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /EmotiveVR_WWise
-  - /EmotiveVR_WWise/Events
   - /EmotiveVR_WWise/SoundBanks
   - /EmotiveVR_WWise/SoundBanks/Default Work Unit
   autoPopulateEnabled: 1

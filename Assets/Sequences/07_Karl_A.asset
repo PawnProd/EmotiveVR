@@ -19,3 +19,6 @@ MonoBehaviour:
   waitInteraction: 0
   sceneNameToLoad: 
   delayBeforeNextSequence: 0
+  soundBankName: KarlSoundBank
+  audioEvtName: PlayKarlAudio
+  delay: 0

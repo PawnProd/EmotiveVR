@@ -17,5 +17,9 @@ MonoBehaviour:
   showEmotionalBar: 0
   addScene: 1
   waitInteraction: 0
+  clearVideo: 1
   sceneNameToLoad: 08_Epilogue
   delayBeforeNextSequence: 120
+  soundBankName: 
+  audioEvtName: 
+  delay: 0

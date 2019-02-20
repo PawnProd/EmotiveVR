@@ -6,18 +6,19 @@ public class ChoiceSequence : MonoBehaviour
 {
     public List<Sequence> sequences;
     public bool nextSequence = false;
+    public bool blockHide = false;
 
     private void Start()
     {
         if(sequences.Count == 0)
         {
-            if(DirectorSequencer.Instance.showEpilogue)
+            if(!DirectorSequencer.Instance.showEpilogue)
             {
-                Debug.Log("Coucou");
-                gameObject.transform.parent.gameObject.SetActive(true);
+
+                gameObject.transform.parent.gameObject.SetActive(false);
             }
         }
-        else if(DirectorSequencer.Instance.ContainSequence(sequences[0]))
+        else if(DirectorSequencer.Instance.ContainSequence(sequences[0]) && !blockHide)
         {
             gameObject.SetActive(false);
         }

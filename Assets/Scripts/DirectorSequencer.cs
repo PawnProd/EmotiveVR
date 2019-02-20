@@ -98,17 +98,6 @@ public class DirectorSequencer : MonoBehaviour
         {
             currentSequence = sequences[indexSequence];
 
-            // SETUP AUDIO
-            if (!string.IsNullOrEmpty(currentSequence.sounBankName))
-            {
-                audioManager.LoadSoundBank(currentSequence.sounBankName);
-            }
-
-            if(!string.IsNullOrEmpty(currentSequence.audioEvtName))
-            {
-                audioManager.SetEvent(currentSequence.audioEvtName);
-            }
-
             // SETUP ADDITIONAL SCENE
             if (currentSequence.addScene)
             {
@@ -127,11 +116,34 @@ public class DirectorSequencer : MonoBehaviour
                 SetupSequence(currentSequence);
             }
 
+            if(currentSequence.clearVideo)
+            {
+                player.Stop();
+                cam.clearFlags = CameraClearFlags.SolidColor;
+                cam.backgroundColor = Color.black;
+                audioManager.UnloadSoundBank();
+            }
+            else
+            {
+                cam.clearFlags = CameraClearFlags.Skybox;
+            }
+
             // SETUP EMOTIONAL BAR
             if(currentSequence.showEmotionalBar)
             {
                 audioManager.SetNewValenceValue(DataReader.GetValence());
                 StartCoroutine(CO_UpdateValenceTime());
+            }
+
+            // SETUP AUDIO
+            if (!string.IsNullOrEmpty(currentSequence.soundBankName))
+            {
+                audioManager.LoadSoundBank(currentSequence.soundBankName);
+            }
+
+            if (!string.IsNullOrEmpty(currentSequence.audioEvtName))
+            {
+                StartCoroutine(CO_WaitVideoToLaunchAudio());
             }
 
             ++indexSequence;
@@ -199,5 +211,15 @@ public class DirectorSequencer : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    IEnumerator CO_WaitVideoToLaunchAudio()
+    {
+        while(!player.isPlaying)
+        {
+            yield return null;
+        }
+
+        audioManager.SetEvent(currentSequence.audioEvtName, currentSequence.delay);
     }
 }

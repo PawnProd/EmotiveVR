@@ -19,5 +19,6 @@ MonoBehaviour:
   waitInteraction: 0
   sceneNameToLoad: 
   delayBeforeNextSequence: 0
-  sounBankName: IntroSoundBank
+  soundBankName: IntroSoundBank
   audioEvtName: PlayIntroduction1
+  delay: 0

@@ -19,3 +19,6 @@ MonoBehaviour:
   waitInteraction: 0
   sceneNameToLoad: 
   delayBeforeNextSequence: 0
+  soundBankName: FreudSoundBank
+  audioEvtName: PlayFreudAudio
+  delay: 0

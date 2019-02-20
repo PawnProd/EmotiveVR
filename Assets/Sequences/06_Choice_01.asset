@@ -19,3 +19,6 @@ MonoBehaviour:
   waitInteraction: 1
   sceneNameToLoad: 06_ViewpointChoice
   delayBeforeNextSequence: 0
+  soundBankName: Choice2SoundBank
+  audioEvtName: PlayOldFreud1
+  delay: 5

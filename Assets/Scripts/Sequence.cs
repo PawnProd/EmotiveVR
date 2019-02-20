@@ -14,13 +14,15 @@ public class Sequence : ScriptableObject
     public bool showEmotionalBar;
     public bool addScene;
     public bool waitInteraction;
+    public bool clearVideo;
 
     [Header("Additional Behaviors")]
     public string sceneNameToLoad;
     public int delayBeforeNextSequence;
 
     [Header("Audio")]
-    public string sounBankName;
+    public string soundBankName;
     public string audioEvtName;
+    public float delay;
 
 }

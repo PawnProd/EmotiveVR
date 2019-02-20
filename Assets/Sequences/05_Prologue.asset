@@ -16,5 +16,9 @@ MonoBehaviour:
   rt: {fileID: 0}
   showEmotionalBar: 0
   addScene: 1
+  waitInteraction: 0
   sceneNameToLoad: 01_OldFreud
   delayBeforeNextSequence: 117
+  soundBankName: 
+  audioEvtName: 
+  delay: 0

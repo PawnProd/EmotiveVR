@@ -30,8 +30,9 @@ public class AudioManager : MonoBehaviour
         AkBankManager.UnloadBank(currentBankName);
     }
 
-    public void SetEvent(string evtName)
+    public void SetEvent(string evtName, float delay = 0)
     {
+        AkSoundEngine.SetRTPCValue(AkSoundEngine.GetIDFromString("startDelay"), delay);
         AkSoundEngine.PostEvent(evtName, source);  
     }
 
@@ -48,9 +49,9 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        AkSoundEngine.SetRTPCValue("AudioVolume", audioVolume);
-        AkSoundEngine.SetRTPCValue("MusicVolume", musicVolume);
+        AkSoundEngine.SetRTPCValue(AkSoundEngine.GetIDFromString("AudioVolume"), audioVolume);
+        AkSoundEngine.SetRTPCValue(AkSoundEngine.GetIDFromString("MusicVolume"), musicVolume);
 
-        AkSoundEngine.SetRTPCValue("ValenceLevel", valence);
+        AkSoundEngine.SetRTPCValue(AkSoundEngine.GetIDFromString("ValenceLevel"), valence);
     }
 }

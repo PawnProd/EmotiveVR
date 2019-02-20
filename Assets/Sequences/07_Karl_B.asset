@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 32900000, guid: 4b3de7593a09baa4991f55b372618107, type: 3}
   rt: {fileID: 8400000, guid: 69e77a92ad2022f47b1e20f44e1d76ac, type: 2}
-  showEmotionalBar: 0
+  showEmotionalBar: 1
   addScene: 0
   waitInteraction: 0
+  clearVideo: 0
   sceneNameToLoad: 
   delayBeforeNextSequence: 0
+  soundBankName: KarlSoundBank
+  audioEvtName: PlayKarlAudioB
+  delay: 0

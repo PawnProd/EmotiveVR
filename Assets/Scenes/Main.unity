@@ -345,7 +345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &464896697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20882a2f2fdaaed4890d1bb769c67ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indexSequence: 5
+  indexSequence: 0
   sequences:
   - {fileID: 11400000, guid: 34b78acce56a66744898783ef4fb4bf8, type: 2}
   - {fileID: 11400000, guid: ec1acf5724ce16e4880d31911edc5098, type: 2}
@@ -377,7 +377,7 @@ MonoBehaviour:
   play: 0
   waitEndScene: 0
   activeRaycast: 0
-  showEpilogue: 1
+  showEpilogue: 0
   loadedSceneName: 
   timer: 0
   delay: 0
@@ -421,11 +421,11 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467860231}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 7922bc90c25557b4f9f03b62b631f325, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 4b3de7593a09baa4991f55b372618107, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 534669904}
-  m_TargetTexture: {fileID: 8400000, guid: 8df5dc3aa0f933f469bdf0e4b031c7f3, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 69e77a92ad2022f47b1e20f44e1d76ac, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex

@@ -99,6 +99,8 @@ public class DirectorSequencer : MonoBehaviour
         {
             currentSequence = sequences[indexSequence];
 
+            emotionalBar.SetActive(currentSequence.showEmotionalBar);
+
             // SETUP ADDITIONAL SCENE
             if (currentSequence.addScene)
             {
@@ -164,7 +166,6 @@ public class DirectorSequencer : MonoBehaviour
         player.targetTexture = sequence.rt;
         RenderSettings.skybox.mainTexture = sequence.rt;
 
-        emotionalBar.SetActive(sequence.showEmotionalBar);
     }
 
     // Callback when the video is finish

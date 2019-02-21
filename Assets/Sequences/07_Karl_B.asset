@@ -18,6 +18,7 @@ MonoBehaviour:
   addScene: 0
   waitInteraction: 0
   clearVideo: 0
+  usePostProcess: 1
   sceneNameToLoad: 
   delayBeforeNextSequence: 0
   soundBankName: KarlSoundBank
@@ -33,3 +34,4 @@ MonoBehaviour:
   - position: {x: 154, y: 70, z: -149}
     rotation: {x: -18.565, y: 183.558, z: 75.77}
     keyTime: 183
+  luminosity: 1

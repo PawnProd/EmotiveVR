@@ -153,6 +153,8 @@ public class DirectorSequencer : MonoBehaviour
                 StartCoroutine(CO_WaitVideoToLaunchAudio());
             }
 
+            cam.GetComponent<CameraManager>().SetPostProcess(currentSequence.usePostProcess);
+
             ++indexSequence;
         }
         
@@ -216,6 +218,10 @@ public class DirectorSequencer : MonoBehaviour
             float valence = DataReader.GetValence();
             audioManager.SetNewValenceValue(valence);
             emotionalBar.GetComponent<EmotionBar>().UpdateEmotionBar(valence);
+            if (currentSequence.luminosity)
+            {
+                cam.GetComponent<CameraManager>().ChangeLuminosity(valence);
+            }
         }
 
         yield return null;

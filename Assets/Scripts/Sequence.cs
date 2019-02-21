@@ -25,6 +25,7 @@ public class Sequence : ScriptableObject
     public bool addScene;
     public bool waitInteraction;
     public bool clearVideo;
+    public bool usePostProcess;
 
     [Header("Additional Behaviors")]
     public string sceneNameToLoad;
@@ -37,6 +38,9 @@ public class Sequence : ScriptableObject
 
     [Header("Emotional Bar Param")]
     public List<BarPositionInfo> barInfo;
+
+    [Header("Post Process")]
+    public bool luminosity;
 
 }
 

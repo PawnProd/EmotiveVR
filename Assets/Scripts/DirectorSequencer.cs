@@ -220,7 +220,7 @@ public class DirectorSequencer : MonoBehaviour
             emotionalBar.GetComponent<EmotionBar>().UpdateEmotionBar(valence);
             if (currentSequence.luminosity)
             {
-                cam.GetComponent<CameraManager>().ChangeLuminosity(valence);
+                cam.GetComponent<CameraManager>().UpdateLuminosity(valence);
             }
         }
 

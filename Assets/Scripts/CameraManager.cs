@@ -8,24 +8,48 @@ public class CameraManager : MonoBehaviour
     public PostProcessLayer layer;
     public PostProcessVolume volume;
 
+    public float speed;
+
+    private ColorGrading _colorGradingLayer;
+
+    private float _luminosityRatio;
+    private float _postExpStart;
+    private float _postExpEnd;
+    private bool _lerpLuminosity;  
+
     private void Start()
     {
         layer = GetComponent<PostProcessLayer>();
         volume = GetComponent<PostProcessVolume>();
+
+        volume.profile.TryGetSettings(out _colorGradingLayer);
     }
 
     public void SetPostProcess(bool active)
     {
         layer.enabled = active;
         volume.enabled = active;
+
+        _colorGradingLayer.enabled.value = active;
     }
 
-    public void ChangeLuminosity(float valence)
+    public void UpdateLuminosity(float valence)
     {
-        PostProcessProfile profile = volume.profile;
+        _postExpStart = _colorGradingLayer.postExposure.value;
+        _postExpEnd = (((valence - 0) * (3 - 1)) / (1 - 0)) + 1;
+        _luminosityRatio = 0;
+        _lerpLuminosity = true;
+    }
 
-        profile.TryGetSettings(out ColorGrading colorGrad);
-        colorGrad.enabled.value = true;
-        colorGrad.postExposure.value = (((valence - 0) * (3 - 1)) / (1 - 0)) + 1;
+
+    private void Update()
+    {
+        if(_lerpLuminosity)
+        {
+            _lerpLuminosity = _luminosityRatio < 1;
+            Debug.Log("Luminosity Ratio = " + _luminosityRatio);
+            _luminosityRatio += Time.deltaTime * speed;
+            _colorGradingLayer.postExposure.value = Mathf.Lerp(_postExpStart, _postExpEnd, _luminosityRatio);
+        }
     }
 }

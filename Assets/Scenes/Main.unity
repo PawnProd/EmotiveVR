@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20882a2f2fdaaed4890d1bb769c67ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indexSequence: 5
+  indexSequence: 0
   sequences:
   - {fileID: 11400000, guid: 34b78acce56a66744898783ef4fb4bf8, type: 2}
   - {fileID: 11400000, guid: ec1acf5724ce16e4880d31911edc5098, type: 2}
@@ -666,6 +666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layer: {fileID: 0}
   volume: {fileID: 0}
+  speed: 5
 --- !u!1 &1192114249
 GameObject:
   m_ObjectHideFlags: 0

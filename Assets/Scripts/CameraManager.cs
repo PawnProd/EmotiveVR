@@ -10,12 +10,16 @@ public class CameraManager : MonoBehaviour
 
     public float speed;
 
+    public Color positiveValenceColor;
+    public Color negativeValenceColor;
+    public Color neutralColor;
+
     private ColorGrading _colorGradingLayer;
 
-    private float _luminosityRatio;
-    private float _postExpStart;
-    private float _postExpEnd;
-    private bool _lerpLuminosity;  
+    private float _colorRatio;
+    private Color _filterColorStart;
+    private Color _filterColorEnd;
+    private bool _lerpFilterColor;  
 
     private void Start()
     {
@@ -33,23 +37,40 @@ public class CameraManager : MonoBehaviour
         _colorGradingLayer.enabled.value = active;
     }
 
-    public void UpdateLuminosity(float valence)
+    public void UpdateFilterColor(float valence)
     {
-        _postExpStart = _colorGradingLayer.postExposure.value;
-        _postExpEnd = (((valence - 0) * (3 - 1)) / (1 - 0)) + 1;
-        _luminosityRatio = 0;
-        _lerpLuminosity = true;
+        Debug.Log("Update Color ! = " + valence);
+        _colorRatio = 0;
+        _filterColorStart = _colorGradingLayer.colorFilter.value;
+        _filterColorEnd = (valence < 0.5f) ? InterpolateColor(valence, negativeValenceColor, neutralColor) : InterpolateColor(valence, neutralColor, positiveValenceColor);
+
+        Debug.Log("End color = (" + _filterColorEnd.r + ", " + _filterColorEnd.g + ", " + _filterColorEnd.b + ")");
+        _lerpFilterColor = true;
+
+    }
+
+    public Color InterpolateColor(float valence, Color minColor, Color maxColor)
+    {
+        float r = InterpolateValence(valence, minColor.r, maxColor.r);
+        float g = InterpolateValence(valence, minColor.g, maxColor.g);
+        float b = InterpolateValence(valence, minColor.b, maxColor.b);
+
+        return new Color(r, g, b, 1);
+    }
+
+    private float InterpolateValence(float valence, float newMinRange, float newMaxRange)
+    {
+        return (valence * (newMaxRange - newMinRange)) / 1 + newMinRange;
     }
 
 
     private void Update()
     {
-        if(_lerpLuminosity)
+        if(_lerpFilterColor)
         {
-            _lerpLuminosity = _luminosityRatio < 1;
-            Debug.Log("Luminosity Ratio = " + _luminosityRatio);
-            _luminosityRatio += Time.deltaTime * speed;
-            _colorGradingLayer.postExposure.value = Mathf.Lerp(_postExpStart, _postExpEnd, _luminosityRatio);
+            _lerpFilterColor = _colorRatio < 1;
+            _colorRatio += Time.deltaTime * speed;
+            _colorGradingLayer.colorFilter.value = Color.Lerp(_filterColorStart, _filterColorEnd, _colorRatio);
         }
     }
 }

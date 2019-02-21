@@ -218,9 +218,9 @@ public class DirectorSequencer : MonoBehaviour
             float valence = DataReader.GetValence();
             audioManager.SetNewValenceValue(valence);
             emotionalBar.GetComponent<EmotionBar>().UpdateEmotionBar(valence);
-            if (currentSequence.luminosity)
+            if (currentSequence.updateColorFromValence)
             {
-                cam.GetComponent<CameraManager>().UpdateLuminosity(valence);
+                cam.GetComponent<CameraManager>().UpdateFilterColor(valence);
             }
         }
 

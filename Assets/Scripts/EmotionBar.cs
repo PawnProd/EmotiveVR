@@ -22,8 +22,6 @@ public class EmotionBar : MonoBehaviour
 
     public void UpdateEmotionBar(float valenceValue)
     {
-        Debug.Log("Start Amount = " + bar.fillAmount);
-        Debug.Log("End Amount = " + valenceValue);
         _startAmountValue = bar.fillAmount;
         _endAmountValue = valenceValue;
         _lerp = true;

@@ -667,6 +667,9 @@ MonoBehaviour:
   layer: {fileID: 0}
   volume: {fileID: 0}
   speed: 5
+  positiveValenceColor: {r: 1, g: 0.87887514, b: 0.16509432, a: 1}
+  negativeValenceColor: {r: 0, g: 0.6509804, b: 0.79607844, a: 1}
+  neutralColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1192114249
 GameObject:
   m_ObjectHideFlags: 0

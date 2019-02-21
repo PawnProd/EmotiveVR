@@ -40,7 +40,7 @@ public class Sequence : ScriptableObject
     public List<BarPositionInfo> barInfo;
 
     [Header("Post Process")]
-    public bool luminosity;
+    public bool updateColorFromValence;
 
 }
 

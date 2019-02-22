@@ -21,7 +21,7 @@ public class CameraManager : MonoBehaviour
     private Color _filterColorEnd;
     private bool _lerpFilterColor;  
 
-    private void Start()
+    private void Awake()
     {
         layer = GetComponent<PostProcessLayer>();
         volume = GetComponent<PostProcessVolume>();
@@ -29,10 +29,11 @@ public class CameraManager : MonoBehaviour
         volume.profile.TryGetSettings(out _colorGradingLayer);
     }
 
-    public void SetPostProcess(bool active)
+    public void SetPostProcess(bool active, PostProcessProfile profile)
     {
         layer.enabled = active;
         volume.enabled = active;
+        volume.profile = profile;
 
         _colorGradingLayer.enabled.value = active;
     }

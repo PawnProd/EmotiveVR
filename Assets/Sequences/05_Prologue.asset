@@ -17,8 +17,12 @@ MonoBehaviour:
   showEmotionalBar: 0
   addScene: 1
   waitInteraction: 0
+  clearVideo: 0
+  usePostProcess: 0
   sceneNameToLoad: 01_OldFreud
   delayBeforeNextSequence: 117
-  soundBankName: 
-  audioEvtName: 
+  soundBankName: OpenProSoundBank
+  audioEvtName: PlayPrologue
   delay: 0
+  barInfo: []
+  updateColorFromValence: 0

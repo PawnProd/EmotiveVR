@@ -1,0 +1,31 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3043762247	PlayBeep			\Default Work Unit\Common\PlayBeep	
+	3086540886	StopAll			\Default Work Unit\Common\StopAll	
+	3240900869	ResumeAll			\Default Work Unit\Common\ResumeAll	
+	3334910481	PlayKarlAudio			\Default Work Unit\06_KarlSequence\PlayKarlAudio	
+	3698975080	GreetingsFromHelsinki			\Default Work Unit\Common\GreetingsFromHelsinki	
+	3934384867	PlayBreathing			\Default Work Unit\Common\PlayBreathing	
+	4091047182	PauseAll			\Default Work Unit\Common\PauseAll	
+	4224340129	PlayKarlAudioB			\Default Work Unit\06_KarlSequence\PlayKarlAudioB	
+	4236082638	PlayKarlMusic			\Default Work Unit\06_KarlSequence\PlayKarlMusic	
+	4284960165	PlayHeartbeat			\Default Work Unit\Common\PlayHeartbeat	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2275494527	ValenceLevel			\Default Work Unit\ValenceLevel	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	120029847	Karl_music_hypno_bass	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\KarlHallucination_bass_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationKarl\HallucinationKarl\Karl_music_hypno_bass		1407872
+	367692447	Karl_music_hypno_vl2	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\KarlHallucination_violins2_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationKarl\HallucinationKarl\Karl_music_hypno_vl2		1617621
+	392348934	Karl_Headlocked	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Karl_2018-07-22_Headlocked_83A3A90C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\Karl\Karl_Headlocked		3042388
+	441117126	KarlB_Headlocked	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\KarlB_2018-07-22_Headlocked_83A3A90C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\Karl\KarlB_Headlocked		1722697
+	514229645	Karl_music_hypno_vlc	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\KarlHallucination_celli_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationKarl\HallucinationKarl\Karl_music_hypno_vlc		1703086
+	613571474	Karl_piano_high	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\KarlHallucination_piano_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationKarl\HallucinationKarl\Karl_piano_high		2272188
+	637122654	Karl_music_hypno_theremin2	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Karl_music_hypno_theremin2_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationKarl\HallucinationKarl\Karl_music_hypno_theremin2		502664
+	649381780	Karl_music_hypno_vl1	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\KarlHallucination_violins1_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationKarl\HallucinationKarl\Karl_music_hypno_vl1		1845941
+	764108043	KarlB_Ambisonic	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\KarlB_2018-05-06_AmbiX_61F7FDED.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\Karl\KarlB_Ambisonic		9405427
+	843648995	Karl_bass_higher	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\KarlHallucination_bass_higher_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationKarl\HallucinationKarl\Karl_bass_higher		948820
+	844915060	Karl_Ambisonic	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Karl_2018-07-22_AmbiX_61F7FDED.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\Karl\Karl_Ambisonic		24901305
+	1008580489	Karl_music_hypno_vla	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\KarlHallucination_violas_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationKarl\HallucinationKarl\Karl_music_hypno_vla		1971913
+	1019554246	Karl_music_hypno_theremin3	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Karl_music_hypno_theremin3_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationKarl\HallucinationKarl\Karl_music_hypno_theremin3		456440
+	1072539586	Karl_music_hypno_theremin1	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Karl_music_hypno_theremin1_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationKarl\HallucinationKarl\Karl_music_hypno_theremin1		356371
+

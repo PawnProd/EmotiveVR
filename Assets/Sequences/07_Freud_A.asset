@@ -17,8 +17,12 @@ MonoBehaviour:
   showEmotionalBar: 0
   addScene: 0
   waitInteraction: 0
+  clearVideo: 0
+  usePostProcess: 0
   sceneNameToLoad: 
   delayBeforeNextSequence: 0
   soundBankName: FreudSoundBank
   audioEvtName: PlayFreudAudio
   delay: 0
+  barInfo: []
+  updateColorFromValence: 0

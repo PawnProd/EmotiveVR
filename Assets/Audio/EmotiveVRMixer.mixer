@@ -3,8 +3,9 @@
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: EmotiveVRMixer
   m_OutputGroup: {fileID: 0}
   m_MasterGroup: {fileID: 24300002}
@@ -19,18 +20,21 @@ AudioMixerController:
   - guids:
     - a715587e9a5d069479db37b64bcfc588
     - 6067151ba8774d44c8e2b35b671863fa
+    - ee78d42990be0bf47aac7394ea9f2413
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Master
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: a715587e9a5d069479db37b64bcfc588
   m_Children:
+  - {fileID: 243113386900671694}
   - {fileID: 243416027419124176}
   m_Volume: 9dde5bab3dcb01a469154a99e4251ea9
   m_Pitch: 7ec321d6a32fc8647a569a7184918364
@@ -43,8 +47,9 @@ AudioMixerGroupController:
 --- !u!244 &24400004
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_EffectID: 1595ee74e11428046878ff2c25d1c524
   m_EffectName: Attenuation
@@ -56,26 +61,49 @@ AudioMixerEffectController:
 --- !u!245 &24500006
 AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: c8bd27ad315edd1499632d2eed01a6f1
   m_FloatValues:
     a8c594b0a07d0094cb0f97f74735f4eb: 20000
+    6bed1fb0d0f8071438cc7c2a8bc55873: 68
     329916219054b9542a7060c95fe070da: 0
     a6eadd339001966458d6811772aa8ff8: 1
     d8e67858a85ee8941b9a237b92490470: 100
     11247c1a641cfef44a6a09486877cc87: 0
+    9dde5bab3dcb01a469154a99e4251ea9: 0
     76f91fec256184f4ca79b7ef3ce42b36: 0
     0118801d87441404fb9d398e9c039d0e: 0
     b4ed947ef72f86241870a73741a1a1e9: 13
   m_TransitionOverrides: {}
+--- !u!243 &243113386900671694
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dialogue
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: ee78d42990be0bf47aac7394ea9f2413
+  m_Children: []
+  m_Volume: d6904b6cf5669bf40b900ecbf77fb77d
+  m_Pitch: f316f07c6bc8e6d45af9f67e4f2796ef
+  m_Effects:
+  - {fileID: 244528726859946058}
+  - {fileID: 244783595616139414}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &243416027419124176
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: dearVR
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 6067151ba8774d44c8e2b35b671863fa
@@ -89,11 +117,26 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &244528726859946058
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 04d15d02b2774124b8b9bff97ba7674d
+  m_EffectName: Attenuation
+  m_MixLevel: c1f9d0142ece2924db2c3d4a1cb179d5
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &244714338691680226
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_EffectID: 2070d49ead8c0e344a0a7c17c33b79cb
   m_EffectName: dearVR Reverb
@@ -120,11 +163,28 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &244783595616139414
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: cdf12ae1fc4a3d446898970a3fa1a2b3
+  m_EffectName: Highpass Simple
+  m_MixLevel: 961eea388143b8444ad3425ac176fabe
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: 6bed1fb0d0f8071438cc7c2a8bc55873
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &244840865417767124
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_EffectID: ed029031f600d864dbc2847641553221
   m_EffectName: Attenuation

@@ -11,7 +11,25 @@ public class AudioManager : MonoBehaviour
 
     [Range(-50, 12)] public float audioVolume;
     [Range(-50, 12)] public float musicVolume;
+
     [Range(0, 1)] public float valence;
+
+    public bool usePseudoValence;
+    [Range(0, 1)] public float pseudoValence;
+
+    private void Start()
+    {
+        if (usePseudoValence == true)
+        {
+            GetComponent<PseudoValenceRTPC>().enabled = true;
+        }
+
+        else
+        {
+            GetComponent<PseudoValenceRTPC>().enabled = false;
+        }
+    }
+
 
     public void LoadSoundBank(string soundBankName)
     {
@@ -41,6 +59,7 @@ public class AudioManager : MonoBehaviour
         valence = newValence;
     }
 
+
     public void ChangeVolumeParameters(float newAudioVol, float newMusicVol)
     {
         audioVolume = newAudioVol;
@@ -52,6 +71,10 @@ public class AudioManager : MonoBehaviour
         AkSoundEngine.SetRTPCValue(AkSoundEngine.GetIDFromString("AudioVolume"), audioVolume);
         AkSoundEngine.SetRTPCValue(AkSoundEngine.GetIDFromString("MusicVolume"), musicVolume);
 
-        AkSoundEngine.SetRTPCValue(AkSoundEngine.GetIDFromString("ValenceLevel"), valence);
+        if (usePseudoValence == false)
+        {
+            AkSoundEngine.SetRTPCValue(AkSoundEngine.GetIDFromString("ValenceLevel"), valence);
+        }
+
     }
 }

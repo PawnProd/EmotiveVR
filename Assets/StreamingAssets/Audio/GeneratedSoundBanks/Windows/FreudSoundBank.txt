@@ -1,0 +1,51 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1437163987	PlayFreudAudio			\Default Work Unit\05_FreudSequence\PlayFreudAudio	
+	2051861868	PlayFreudMusic			\Default Work Unit\05_FreudSequence\PlayFreudMusic	
+	2896494411	PlayFreudAudioB			\Default Work Unit\05_FreudSequence\PlayFreudAudioB	
+	3043762247	PlayBeep			\Default Work Unit\Common\PlayBeep	
+	3086540886	StopAll			\Default Work Unit\Common\StopAll	
+	3240900869	ResumeAll			\Default Work Unit\Common\ResumeAll	
+	3698975080	GreetingsFromHelsinki			\Default Work Unit\Common\GreetingsFromHelsinki	
+	3934384867	PlayBreathing			\Default Work Unit\Common\PlayBreathing	
+	4091047182	PauseAll			\Default Work Unit\Common\PauseAll	
+	4284960165	PlayHeartbeat			\Default Work Unit\Common\PlayHeartbeat	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1428440363	ExcitementLevel			\Default Work Unit\ExcitementLevel	
+	2275494527	ValenceLevel			\Default Work Unit\ValenceLevel	
+
+Effect plug-ins	ID	Name	Type				Notes
+	1008402193	Low_Pass_20KHz	Wwise Parametric EQ			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	25722323	Freud_music_pianochords_moderate	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\MOD_Freud_pianochords_moderate_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreudModulation\Freud_music_pianochords_moderate		2268064
+	32099593	Freud_Headlocked	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Freud_2018-05-06_Headlocked_AE03DA8B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\Freud\Freud_Headlocked		3568546
+	120796193	Freud_music_pianochords_hard	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Freud_music_pianochords_hard_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreud\Freud_music_pianochords_hard		2203264
+	272805053	Freud_music_eightsarppeggio_lowerrange	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Freud_music_eightsarppeggio_lowerrange_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreud\Freud_music_eightsarppeggio_lowerrange		2203264
+	289799131	Freud_Ambisonic	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Freud_2018-05-06_AmbiX2-2_61F7FDED.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\Freud\Freud_Ambisonic		27991784
+	386394299	Freud_music_eightsarppeggio_higherrange	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Freud_music_eightsarppeggio_higherrange_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreud\Freud_music_eightsarppeggio_higherrange		2203264
+	404369555	Freud_music_sixteenthsarppeggio_middlerange	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\MOD_Freud_sixteentharpeggio_middlerange_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreudModulation\Freud_music_sixteenthsarppeggio_middlerange		2138464
+	425868521	Freud_music_sixteenthsarppeggio_middlerange	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Freud_music_sixteenthsarppeggio_middlerange_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreud\Freud_music_sixteenthsarppeggio_middlerange		2138464
+	435690196	Freud_music_pianochords_hard	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\MOD_Freud_pianochords_hard_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreudModulation\Freud_music_pianochords_hard		2203264
+	465079721	Freud_music_eightsarppeggio_middlerange	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Freud_music_eightsarppeggio_middlerange_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreud\Freud_music_eightsarppeggio_middlerange		2203264
+	481057725	Freud_music_justchords_slow_middlerange	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\MOD_Freud_justchords_slow_middlerange_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreudModulation\Freud_music_justchords_slow_middlerange		2073664
+	498444037	Freud_music_lowbass	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\MOD_Freud_lowbass_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreudModulation\Freud_music_lowbass		2073664
+	506215901	Freud_music_middlequarters	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Freud_music_middlequarters_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreud\Freud_music_middlequarters		2073664
+	525245683	Freud_music_sixteenthsarppeggio_higherrange	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Freud_music_sixteenthsarppeggio_higherrange_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreud\Freud_music_sixteenthsarppeggio_higherrange		2138464
+	576849229	Freud_music_eightsarppeggio_higherrange	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\MOD_Freud_eightsarpeggio_higherrange_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreudModulation\Freud_music_eightsarppeggio_higherrange		2203264
+	580609762	Freud_music_pianochords_soft	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\MOD_Freud_pianochords_soft_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreudModulation\Freud_music_pianochords_soft		2073664
+	598008059	Freud_music_justchords_middlerange	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\MOD_Freud_justchords_middlerange_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreudModulation\Freud_music_justchords_middlerange		2203264
+	599544762	Freud_music_justchords_slow_middlerange	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Freud_music_justchords_slow_middlerange_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreud\Freud_music_justchords_slow_middlerange		2073664
+	637607448	MOD_Freud_strings_ending	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\MOD_Freud_strings_ending_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreudEnding\MOD_Freud_strings_ending		2980864
+	652415452	Freud_music_pianochords_soft	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Freud_music_pianochords_soft_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreud\Freud_music_pianochords_soft		2073664
+	663366981	Freud_music_strings	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\MOD_Freud_music_strings_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreudModulation\Freud_music_strings		2332864
+	684795944	Freud_music_strings	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Freud_music_strings_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreud\Freud_music_strings		2332864
+	688385573	Freud_music_sixteenthsarppeggio_higherrange	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\MOD_Freud_sixteenthsarpeggio_higherrange_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreudModulation\Freud_music_sixteenthsarppeggio_higherrange		2138464
+	784999225	Freud_music_middlequarters	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\MOD_Freud_middlequarters_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreudModulation\Freud_music_middlequarters		2073664
+	895699937	Freud_music_lowbass	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Freud_music_lowbass_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreud\Freud_music_lowbass		2073664
+	911171468	FreudB_Headlocked	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\FreudB_2018-06-02_Headlocked_83A3A90C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\Freud\FreudB_Headlocked		728848
+	956973067	Freud_music_justchords_middlerange	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Freud_music_justchords_middlerange_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreud\Freud_music_justchords_middlerange		2203264
+	996054496	FreudB_Ambisonic	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\FreudB_2018-06-02_AmbiX2-2_61F7FDED.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\Freud\FreudB_Ambisonic		19299632
+	1012210263	Freud_music_pianochords_moderate	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Freud_music_pianochords_moderate_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreud\Freud_music_pianochords_moderate		2268064
+	1054731262	Freud_music_eightsarppeggio_middlerange	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\MOD_Freud_eightsarpeggio_middlerange_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreudModulation\Freud_music_eightsarppeggio_middlerange		2203264
+

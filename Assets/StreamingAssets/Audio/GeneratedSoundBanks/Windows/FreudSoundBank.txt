@@ -16,6 +16,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 
 Effect plug-ins	ID	Name	Type				Notes
 	1008402193	Low_Pass_20KHz	Wwise Parametric EQ			
+	2667647788	Single_Band_1Khz_Wide	Wwise Parametric EQ			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	25722323	Freud_music_pianochords_moderate	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\MOD_Freud_pianochords_moderate_937180D4.wem		\Interactive Music Hierarchy\Default Work Unit\HallucinationFreud\HalluFreudModulation\Freud_music_pianochords_moderate		2268064

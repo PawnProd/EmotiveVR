@@ -1,0 +1,24 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2922769081	PlayOldFreud1			\Default Work Unit\04_ChoixSequence\PlayOldFreud1	
+	2922769082	PlayOldFreud2			\Default Work Unit\04_ChoixSequence\PlayOldFreud2	
+	3043762247	PlayBeep			\Default Work Unit\Common\PlayBeep	
+	3086540886	StopAll			\Default Work Unit\Common\StopAll	
+	3240900869	ResumeAll			\Default Work Unit\Common\ResumeAll	
+	3397257820	PlayChoixMusicNoLoop			\Default Work Unit\04_ChoixSequence\PlayChoixMusicNoLoop	
+	3655101832	PlayOldFreud1_single			\Default Work Unit\04_ChoixSequence\PlayOldFreud1_single	
+	3698975080	GreetingsFromHelsinki			\Default Work Unit\Common\GreetingsFromHelsinki	
+	3899680803	PlayChoixMusic			\Default Work Unit\04_ChoixSequence\PlayChoixMusic	
+	3934384867	PlayBreathing			\Default Work Unit\Common\PlayBreathing	
+	4071506729	StopChoixMusic			\Default Work Unit\04_ChoixSequence\StopChoixMusic	
+	4091047182	PauseAll			\Default Work Unit\Common\PauseAll	
+	4284960165	PlayHeartbeat			\Default Work Unit\Common\PlayHeartbeat	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	703117816	startDelay			\Default Work Unit\startDelay	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	556146288	ChoiceMusic_2018-05-29_extraBarEnd	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\ChoiceMusic_2018-05-29_extraBarEnd_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\Choix\Choix\ChoiceMusic_2018-05-29_extraBarEnd		376873
+	916912912	ChoiceMusicNoLoop	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\ChoiceMusic_2018-06-21_long_83A3A90C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\Choix\ChoiceMusicNoLoop		2005636
+	936697932	VieuxFreud_Il_y_avait_lui_1	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\VieuxFreud_Il_y_avait_lui_1_A6250FCE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\Choix\OldFreud\VieuxFreud_Il_y_avait_lui_1		73913
+	961796277	VieuxFreud_Il_y_avait_lui_2	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\VieuxFreud_Il_y_avait_lui_2_A6250FCE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\Choix\OldFreud\VieuxFreud_Il_y_avait_lui_2		73717
+

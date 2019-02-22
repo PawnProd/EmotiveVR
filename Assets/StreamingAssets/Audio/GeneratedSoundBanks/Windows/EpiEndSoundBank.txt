@@ -1,0 +1,39 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1149452795	PlayEndMusic			\Default Work Unit\08_EndCredits\PlayEndMusic	
+	2664430727	PlayEpilogue			\Default Work Unit\07_Epilogue\PlayEpilogue	
+	3043762247	PlayBeep			\Default Work Unit\Common\PlayBeep	
+	3086540886	StopAll			\Default Work Unit\Common\StopAll	
+	3240900869	ResumeAll			\Default Work Unit\Common\ResumeAll	
+	3698975080	GreetingsFromHelsinki			\Default Work Unit\Common\GreetingsFromHelsinki	
+	3934384867	PlayBreathing			\Default Work Unit\Common\PlayBreathing	
+	4091047182	PauseAll			\Default Work Unit\Common\PauseAll	
+	4284960165	PlayHeartbeat			\Default Work Unit\Common\PlayHeartbeat	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2275494527	ValenceLevel			\Default Work Unit\ValenceLevel	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	13960270	EndCreditMusic_2018-05-24_positive_violas	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_positive_violas_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsPositive\EndCreditMusic_2018-05-24_positive_violas		1793604
+	37646044	EndCreditMusic_2018-05-24_neutral_celli	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_neutral_celli_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsNeutral\EndCreditMusic_2018-05-24_neutral_celli		1690532
+	39693198	EndCreditMusic_2018-05-24_positive_piano	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_positive_piano_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsPositive\EndCreditMusic_2018-05-24_positive_piano		1523498
+	57620431	EndCreditMusic_2018-05-24_neutral_violins2	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_neutral_violins2_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsNeutral\EndCreditMusic_2018-05-24_neutral_violins2		1868244
+	86817842	EndCreditMusic_2018-05-24_positive_violins1	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_positive_violins1_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsPositive\EndCreditMusic_2018-05-24_positive_violins1		2115601
+	97479900	EndCreditMusic_2018-05-24_postivePizziTrill	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_postivePizziTrill_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsPositive\EndCreditMusic_2018-05-24_postivePizziTrill		1479580
+	135108681	EndCreditMusic_2018-05-24_positive_celli	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_positive_celli_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsPositive\EndCreditMusic_2018-05-24_positive_celli		1688196
+	147186154	NeuroTheremin_02	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\NeuroTheremin_02_83A3A90C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\EndCreditMusic\NeuroThereminEndCredits\NeuroTheremin_02		8766
+	165148767	EndCreditMusic_2018-05-24_neutral_violins1	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_neutral_violins1_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsNeutral\EndCreditMusic_2018-05-24_neutral_violins1		2118872
+	183987409	EndCreditMusic_2018-05-24_neutral_theremin	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_neutral_theremin_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsNeutral\EndCreditMusic_2018-05-24_neutral_theremin		980215
+	544406365	EndCreditMusic_2018-05-24_neutral_piano	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_neutral_piano_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsNeutral\EndCreditMusic_2018-05-24_neutral_piano		1534995
+	676971331	NeuroTheremin_03	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\NeuroTheremin_03_83A3A90C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\EndCreditMusic\NeuroThereminEndCredits\NeuroTheremin_03		9867
+	692109710	EndCreditMusic_2018-05-24_neutral_softStrings	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_neutral_softStrings_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsNeutral\EndCreditMusic_2018-05-24_neutral_softStrings		2252181
+	741758092	EndCreditMusic_2018-05-24_positive_theremin	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_positive_theremin_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsPositive\EndCreditMusic_2018-05-24_positive_theremin		952976
+	742108528	NeuroTheremin_07	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\NeuroTheremin_07_83A3A90C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\EndCreditMusic\NeuroThereminEndCredits\NeuroTheremin_07		4823
+	765375186	EndCreditMusic_2018-05-24_positive_violins2	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_positive_violins2_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsPositive\EndCreditMusic_2018-05-24_positive_violins2		1870656
+	773170163	EndCreditMusic_2018-05-24_neutral_violas	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_neutral_violas_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsNeutral\EndCreditMusic_2018-05-24_neutral_violas		1521282
+	775023345	EndCreditMusic_2018-05-24_negativePianoBass	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_neutral_negativePnoBass_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsNeutral\EndCreditMusic_2018-05-24_negativePianoBass		1411154
+	816203901	NeuroTheremin_17	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\NeuroTheremin_17_83A3A90C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\EndCreditMusic\NeuroThereminEndCredits\NeuroTheremin_17		9785
+	864687233	EndCreditMusic_2018-05-24_positive_softStrings	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\EndCreditMusic_2018-05-24_positive_softStrings_1F26E456.wem		\Interactive Music Hierarchy\Default Work Unit\EndCreditsSwitch\EndCreditsPositive\EndCreditMusic_2018-05-24_positive_softStrings		2256387
+	978726710	NeuroTheremin_15	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\NeuroTheremin_15_83A3A90C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\EndCreditMusic\NeuroThereminEndCredits\NeuroTheremin_15		11419
+	1059116330	Epilogue_OldFreud_AmbiX2-2	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\Epilogue_2018-05-06_AmbiX2-2_61F7FDED.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\Epilogue\Epilogue_OldFreud_AmbiX2-2		8698934
+	1073416195	NeuroTheremin_01	D:\matias.harju0400762971\EmotiveVR\EmotiveVR_WWise\.cache\Windows\SFX\NeuroTheremin_01_83A3A90C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sequences\EndCreditMusic\NeuroThereminEndCredits\NeuroTheremin_01		10268
+

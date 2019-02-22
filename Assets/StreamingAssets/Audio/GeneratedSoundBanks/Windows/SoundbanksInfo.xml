@@ -253,7 +253,7 @@
 			<IncludedMemoryFiles>
 				<File Id="25722323" Language="SFX">
 					<ShortName>MOD_Freud_pianochords_moderate.wav</ShortName>
-					<Path>SFX\MOD_Freud_pianochords_moderate_937180D4.wem</Path>
+					<Path>SFX\MOD_Freud_pianochords_moderate_5C918F4F.wem</Path>
 				</File>
 				<File Id="32099593" Language="SFX">
 					<ShortName>Freud_2018-05-06_Headlocked.wav</ShortName>
@@ -261,11 +261,11 @@
 				</File>
 				<File Id="120796193" Language="SFX">
 					<ShortName>Freud_music_pianochords_hard.wav</ShortName>
-					<Path>SFX\Freud_music_pianochords_hard_937180D4.wem</Path>
+					<Path>SFX\Freud_music_pianochords_hard_5C918F4F.wem</Path>
 				</File>
 				<File Id="272805053" Language="SFX">
 					<ShortName>Freud_music_eightsarppeggio_lowerrange.wav</ShortName>
-					<Path>SFX\Freud_music_eightsarppeggio_lowerrange_937180D4.wem</Path>
+					<Path>SFX\Freud_music_eightsarppeggio_lowerrange_5C918F4F.wem</Path>
 				</File>
 				<File Id="289799131" Language="SFX">
 					<ShortName>Freud_2018-05-06_AmbiX2-2.wav</ShortName>
@@ -273,83 +273,83 @@
 				</File>
 				<File Id="386394299" Language="SFX">
 					<ShortName>Freud_music_eightsarppeggio_higherrange.wav</ShortName>
-					<Path>SFX\Freud_music_eightsarppeggio_higherrange_937180D4.wem</Path>
+					<Path>SFX\Freud_music_eightsarppeggio_higherrange_5C918F4F.wem</Path>
 				</File>
 				<File Id="404369555" Language="SFX">
 					<ShortName>MOD_Freud_sixteentharpeggio_middlerange.wav</ShortName>
-					<Path>SFX\MOD_Freud_sixteentharpeggio_middlerange_937180D4.wem</Path>
+					<Path>SFX\MOD_Freud_sixteentharpeggio_middlerange_5C918F4F.wem</Path>
 				</File>
 				<File Id="425868521" Language="SFX">
 					<ShortName>Freud_music_sixteenthsarppeggio_middlerange.wav</ShortName>
-					<Path>SFX\Freud_music_sixteenthsarppeggio_middlerange_937180D4.wem</Path>
+					<Path>SFX\Freud_music_sixteenthsarppeggio_middlerange_5C918F4F.wem</Path>
 				</File>
 				<File Id="435690196" Language="SFX">
 					<ShortName>MOD_Freud_pianochords_hard.wav</ShortName>
-					<Path>SFX\MOD_Freud_pianochords_hard_937180D4.wem</Path>
+					<Path>SFX\MOD_Freud_pianochords_hard_5C918F4F.wem</Path>
 				</File>
 				<File Id="465079721" Language="SFX">
 					<ShortName>Freud_music_eightsarppeggio_middlerange.wav</ShortName>
-					<Path>SFX\Freud_music_eightsarppeggio_middlerange_937180D4.wem</Path>
+					<Path>SFX\Freud_music_eightsarppeggio_middlerange_5C918F4F.wem</Path>
 				</File>
 				<File Id="481057725" Language="SFX">
 					<ShortName>MOD_Freud_justchords_slow_middlerange.wav</ShortName>
-					<Path>SFX\MOD_Freud_justchords_slow_middlerange_937180D4.wem</Path>
+					<Path>SFX\MOD_Freud_justchords_slow_middlerange_5C918F4F.wem</Path>
 				</File>
 				<File Id="498444037" Language="SFX">
 					<ShortName>MOD_Freud_lowbass.wav</ShortName>
-					<Path>SFX\MOD_Freud_lowbass_937180D4.wem</Path>
+					<Path>SFX\MOD_Freud_lowbass_5C918F4F.wem</Path>
 				</File>
 				<File Id="506215901" Language="SFX">
 					<ShortName>Freud_music_middlequarters.wav</ShortName>
-					<Path>SFX\Freud_music_middlequarters_937180D4.wem</Path>
+					<Path>SFX\Freud_music_middlequarters_5C918F4F.wem</Path>
 				</File>
 				<File Id="525245683" Language="SFX">
 					<ShortName>Freud_music_sixteenthsarppeggio_higherrange.wav</ShortName>
-					<Path>SFX\Freud_music_sixteenthsarppeggio_higherrange_937180D4.wem</Path>
+					<Path>SFX\Freud_music_sixteenthsarppeggio_higherrange_5C918F4F.wem</Path>
 				</File>
 				<File Id="576849229" Language="SFX">
 					<ShortName>MOD_Freud_eightsarpeggio_higherrange.wav</ShortName>
-					<Path>SFX\MOD_Freud_eightsarpeggio_higherrange_937180D4.wem</Path>
+					<Path>SFX\MOD_Freud_eightsarpeggio_higherrange_5C918F4F.wem</Path>
 				</File>
 				<File Id="580609762" Language="SFX">
 					<ShortName>MOD_Freud_pianochords_soft.wav</ShortName>
-					<Path>SFX\MOD_Freud_pianochords_soft_937180D4.wem</Path>
+					<Path>SFX\MOD_Freud_pianochords_soft_5C918F4F.wem</Path>
 				</File>
 				<File Id="598008059" Language="SFX">
 					<ShortName>MOD_Freud_justchords_middlerange.wav</ShortName>
-					<Path>SFX\MOD_Freud_justchords_middlerange_937180D4.wem</Path>
+					<Path>SFX\MOD_Freud_justchords_middlerange_5C918F4F.wem</Path>
 				</File>
 				<File Id="599544762" Language="SFX">
 					<ShortName>Freud_music_justchords_slow_middlerange.wav</ShortName>
-					<Path>SFX\Freud_music_justchords_slow_middlerange_937180D4.wem</Path>
+					<Path>SFX\Freud_music_justchords_slow_middlerange_5C918F4F.wem</Path>
 				</File>
 				<File Id="637607448" Language="SFX">
 					<ShortName>MOD_Freud_strings_ending.wav</ShortName>
-					<Path>SFX\MOD_Freud_strings_ending_937180D4.wem</Path>
+					<Path>SFX\MOD_Freud_strings_ending_5C918F4F.wem</Path>
 				</File>
 				<File Id="652415452" Language="SFX">
 					<ShortName>Freud_music_pianochords_soft.wav</ShortName>
-					<Path>SFX\Freud_music_pianochords_soft_937180D4.wem</Path>
+					<Path>SFX\Freud_music_pianochords_soft_5C918F4F.wem</Path>
 				</File>
 				<File Id="663366981" Language="SFX">
 					<ShortName>MOD_Freud_music_strings.wav</ShortName>
-					<Path>SFX\MOD_Freud_music_strings_937180D4.wem</Path>
+					<Path>SFX\MOD_Freud_music_strings_5C918F4F.wem</Path>
 				</File>
 				<File Id="684795944" Language="SFX">
 					<ShortName>Freud_music_strings.wav</ShortName>
-					<Path>SFX\Freud_music_strings_937180D4.wem</Path>
+					<Path>SFX\Freud_music_strings_5C918F4F.wem</Path>
 				</File>
 				<File Id="688385573" Language="SFX">
 					<ShortName>MOD_Freud_sixteenthsarpeggio_higherrange.wav</ShortName>
-					<Path>SFX\MOD_Freud_sixteenthsarpeggio_higherrange_937180D4.wem</Path>
+					<Path>SFX\MOD_Freud_sixteenthsarpeggio_higherrange_5C918F4F.wem</Path>
 				</File>
 				<File Id="784999225" Language="SFX">
 					<ShortName>MOD_Freud_middlequarters.wav</ShortName>
-					<Path>SFX\MOD_Freud_middlequarters_937180D4.wem</Path>
+					<Path>SFX\MOD_Freud_middlequarters_5C918F4F.wem</Path>
 				</File>
 				<File Id="895699937" Language="SFX">
 					<ShortName>Freud_music_lowbass.wav</ShortName>
-					<Path>SFX\Freud_music_lowbass_937180D4.wem</Path>
+					<Path>SFX\Freud_music_lowbass_5C918F4F.wem</Path>
 				</File>
 				<File Id="911171468" Language="SFX">
 					<ShortName>FreudB_2018-06-02_Headlocked.wav</ShortName>
@@ -357,7 +357,7 @@
 				</File>
 				<File Id="956973067" Language="SFX">
 					<ShortName>Freud_music_justchords_middlerange.wav</ShortName>
-					<Path>SFX\Freud_music_justchords_middlerange_937180D4.wem</Path>
+					<Path>SFX\Freud_music_justchords_middlerange_5C918F4F.wem</Path>
 				</File>
 				<File Id="996054496" Language="SFX">
 					<ShortName>FreudB_2018-06-02_AmbiX2-2.wav</ShortName>
@@ -365,11 +365,11 @@
 				</File>
 				<File Id="1012210263" Language="SFX">
 					<ShortName>Freud_music_pianochords_moderate.wav</ShortName>
-					<Path>SFX\Freud_music_pianochords_moderate_937180D4.wem</Path>
+					<Path>SFX\Freud_music_pianochords_moderate_5C918F4F.wem</Path>
 				</File>
 				<File Id="1054731262" Language="SFX">
 					<ShortName>MOD_Freud_eightsarpeggio_middlerange.wav</ShortName>
-					<Path>SFX\MOD_Freud_eightsarpeggio_middlerange_937180D4.wem</Path>
+					<Path>SFX\MOD_Freud_eightsarpeggio_middlerange_5C918F4F.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

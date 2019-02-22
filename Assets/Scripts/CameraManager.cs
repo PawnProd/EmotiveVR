@@ -21,24 +21,29 @@ public class CameraManager : MonoBehaviour
     private Color _filterColorEnd;
     private bool _lerpFilterColor;  
 
-    private void Start()
+    private void Awake()
     {
         layer = GetComponent<PostProcessLayer>();
         volume = GetComponent<PostProcessVolume>();
 
-        volume.profile.TryGetSettings(out _colorGradingLayer);
+        
     }
 
-    public void SetPostProcess(bool active)
+    public void SetPostProcess(bool active, PostProcessProfile profile)
     {
         layer.enabled = active;
         volume.enabled = active;
+        volume.profile = profile;
 
-        _colorGradingLayer.enabled.value = active;
     }
 
     public void UpdateFilterColor(float valence)
     {
+        if(_colorGradingLayer == null)
+        {
+            volume.profile.TryGetSettings(out _colorGradingLayer);
+            _colorGradingLayer.enabled.value = true;
+        }
         Debug.Log("Update Color ! = " + valence);
         _colorRatio = 0;
         _filterColorStart = _colorGradingLayer.colorFilter.value;

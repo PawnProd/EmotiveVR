@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.Rendering.PostProcessing;
 
 [CreateAssetMenu(fileName = "Sequence")]
 public class Sequence : ScriptableObject
@@ -40,6 +41,7 @@ public class Sequence : ScriptableObject
     public List<BarPositionInfo> barInfo;
 
     [Header("Post Process")]
+    public PostProcessProfile profile;
     public bool updateColorFromValence;
 
 }

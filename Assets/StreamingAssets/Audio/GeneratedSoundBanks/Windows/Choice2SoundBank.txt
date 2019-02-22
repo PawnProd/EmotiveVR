@@ -1,6 +1,9 @@
 Event	ID	Name			Wwise Object Path	Notes
+	862099911	PlayPrologueNoLoop			\Default Work Unit\03_Prologue\PlayPrologueNoLoop	
+	1486414576	PlayPrologue			\Default Work Unit\03_Prologue\PlayPrologue	
 	2922769081	PlayOldFreud1			\Default Work Unit\04_ChoixSequence\PlayOldFreud1	
 	2922769082	PlayOldFreud2			\Default Work Unit\04_ChoixSequence\PlayOldFreud2	
+	3041392870	PlayPrologueNoMusic			\Default Work Unit\03_Prologue\PlayPrologueNoMusic	
 	3043762247	PlayBeep			\Default Work Unit\Common\PlayBeep	
 	3086540886	StopAll			\Default Work Unit\Common\StopAll	
 	3240900869	ResumeAll			\Default Work Unit\Common\ResumeAll	

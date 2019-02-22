@@ -101,6 +101,9 @@
 				<Event Id="2922769081" Name="PlayOldFreud1" ObjectPath="\Events\Default Work Unit\04_ChoixSequence\PlayOldFreud1"/>
 				<Event Id="3655101832" Name="PlayOldFreud1_single" ObjectPath="\Events\Default Work Unit\04_ChoixSequence\PlayOldFreud1_single"/>
 				<Event Id="2922769082" Name="PlayOldFreud2" ObjectPath="\Events\Default Work Unit\04_ChoixSequence\PlayOldFreud2"/>
+				<Event Id="1486414576" Name="PlayPrologue" ObjectPath="\Events\Default Work Unit\03_Prologue\PlayPrologue"/>
+				<Event Id="862099911" Name="PlayPrologueNoLoop" ObjectPath="\Events\Default Work Unit\03_Prologue\PlayPrologueNoLoop"/>
+				<Event Id="3041392870" Name="PlayPrologueNoMusic" ObjectPath="\Events\Default Work Unit\03_Prologue\PlayPrologueNoMusic"/>
 				<Event Id="3240900869" Name="ResumeAll" ObjectPath="\Events\Default Work Unit\Common\ResumeAll"/>
 				<Event Id="3086540886" Name="StopAll" ObjectPath="\Events\Default Work Unit\Common\StopAll"/>
 				<Event Id="4071506729" Name="StopChoixMusic" ObjectPath="\Events\Default Work Unit\04_ChoixSequence\StopChoixMusic"/>

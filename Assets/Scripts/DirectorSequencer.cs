@@ -153,7 +153,15 @@ public class DirectorSequencer : MonoBehaviour
                 StartCoroutine(CO_WaitVideoToLaunchAudio());
             }
 
-            cam.GetComponent<CameraManager>().SetPostProcess(currentSequence.usePostProcess);
+            if(currentSequence.usePostProcess)
+            {
+                cam.GetComponent<CameraManager>().SetPostProcess(true, currentSequence.profile);
+            }
+            else
+            {
+                cam.GetComponent<CameraManager>().SetPostProcess(false, null);
+            }
+            
 
             ++indexSequence;
         }

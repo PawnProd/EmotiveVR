@@ -18,11 +18,12 @@ MonoBehaviour:
   addScene: 1
   waitInteraction: 0
   clearVideo: 0
-  usePostProcess: 0
+  usePostProcess: 1
   sceneNameToLoad: 01_OldFreud
   delayBeforeNextSequence: 117
-  soundBankName: OpenProSoundBank
+  soundBankName: Choice2SoundBank
   audioEvtName: PlayPrologue
   delay: 0
   barInfo: []
+  profile: {fileID: 11400000, guid: 359b1e1e6969c094a88a59583a892d57, type: 2}
   updateColorFromValence: 0

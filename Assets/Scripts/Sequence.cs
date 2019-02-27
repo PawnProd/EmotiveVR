@@ -44,5 +44,9 @@ public class Sequence : ScriptableObject
     public PostProcessProfile profile;
     public bool updateColorFromValence;
 
+    [Header("Synchronization")]
+    public bool forceSynchronize;
+    public float timeValue;
+
 }
 

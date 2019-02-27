@@ -36,3 +36,5 @@ MonoBehaviour:
     keyTime: 183
   profile: {fileID: 11400000, guid: 42d42946b0e5ff44b9ea62ec784cd894, type: 2}
   updateColorFromValence: 1
+  forceSynchronize: 1
+  timeValue: 0.5

@@ -30,8 +30,9 @@ public class DirectorSequencer : MonoBehaviour
     public float timer = 0;
     public float delay;
     public float updateValenceTime = 1;
-
+    public float synchronizeTimer = 0;
     private Quaternion startRotation;
+    private GameObject _hitObject;
 
     private void Awake()
     {
@@ -73,21 +74,36 @@ public class DirectorSequencer : MonoBehaviour
             {
                 if(hit.collider != null)
                 {
-                    if(hit.collider.CompareTag("Choice"))
+                    if(hit.collider.CompareTag("Choice") && _hitObject != hit.collider.gameObject)
                     {
-                        if(!hit.collider.GetComponent<ChoiceSequence>().nextSequence)
-                        {
-                            AddSequences(hit.collider.GetComponent<ChoiceSequence>().GetSequence());
-                        }
-                        
-                        activeRaycast = false;
-                        showEpilogue = true;
-                        RemoveScene();
-                        SetNextVideo();
+                        if (_hitObject != null)
+                            _hitObject.GetComponent<ChoiceSequence>().FadeInSequence();
+
+                        _hitObject = hit.collider.gameObject;
+                        _hitObject.GetComponent<ChoiceSequence>().FadeOutSequence();
                     }
                 }
+               
+            }
+            else if(_hitObject != null)
+            {
+                _hitObject.GetComponent<ChoiceSequence>().FadeInSequence();
+                _hitObject = null;
             }
         }
+    }
+
+    public void ValidateChoice(ChoiceSequence choice)
+    {
+        if (!choice.nextSequence)
+        {
+            AddSequences(choice.GetSequence());
+        }
+
+        activeRaycast = false;
+        showEpilogue = true;
+        RemoveScene();
+        SetNextVideo();
     }
 
     private void SetNextVideo()
@@ -216,6 +232,7 @@ public class DirectorSequencer : MonoBehaviour
         return sequences.Contains(sequence);
     }
 
+    #region Coroutines
     // Update every second the emotional bar if it is active
     IEnumerator CO_UpdateValenceTime()
     {
@@ -242,6 +259,18 @@ public class DirectorSequencer : MonoBehaviour
             yield return null;
         }
 
+        if(currentSequence.forceSynchronize)
+        {
+            while(synchronizeTimer < currentSequence.timeValue)
+            {
+                synchronizeTimer += Time.deltaTime;
+                yield return null;
+            }
+        }
+        synchronizeTimer = 0;
         audioManager.SetEvent(currentSequence.audioEvtName, currentSequence.delay);
     }
+
+
+    #endregion
 }

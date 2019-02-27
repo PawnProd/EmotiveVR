@@ -25,4 +25,7 @@ MonoBehaviour:
   audioEvtName: PlayFreudAudio
   delay: 0
   barInfo: []
+  profile: {fileID: 0}
   updateColorFromValence: 0
+  forceSynchronize: 1
+  timeValue: 0.5

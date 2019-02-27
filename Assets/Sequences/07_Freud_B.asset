@@ -58,4 +58,7 @@ MonoBehaviour:
   - position: {x: 225, y: 35, z: -34}
     rotation: {x: -5.243, y: 270.91, z: 92.178}
     keyTime: 222
+  profile: {fileID: 0}
   updateColorFromValence: 0
+  forceSynchronize: 1
+  timeValue: 0.5

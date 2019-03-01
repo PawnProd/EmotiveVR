@@ -46,6 +46,7 @@ sysinfo.txt
 
 # Videos
 *.mp4
+*.mp4.meta
 
 # Crashlytics generated file
 crashlytics-build.properties

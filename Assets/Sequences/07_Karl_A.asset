@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6cfb532e7f4f6d469a4d9de4a5aa26f, type: 3}
   m_Name: 07_Karl_A
   m_EditorClassIdentifier: 
-  clip: {fileID: 32900000, guid: d5d68673144c79f41a39dcd8fdfb2c4e, type: 3}
+  clip: {fileID: 32900000, guid: 905744e5ffd16e04a947f2c0ba3c977c, type: 3}
   rt: {fileID: 8400000, guid: 490063b90e1f27f4fa4943bda9bdd797, type: 2}
   showEmotionalBar: 0
   addScene: 0

@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6cfb532e7f4f6d469a4d9de4a5aa26f, type: 3}
   m_Name: 09_Credits
   m_EditorClassIdentifier: 
-  clip: {fileID: 32900000, guid: 19fe5460ca56b844f9a6f377eb530db3, type: 3}
+  clip: {fileID: 32900000, guid: d77eb742e23efd141aa6d7b328a2e18d, type: 3}
   rt: {fileID: 8400000, guid: eb58606eb91a54b49820be102a0d83ba, type: 2}
   showEmotionalBar: 0
   addScene: 0
   waitInteraction: 0
+  clearVideo: 0
+  usePostProcess: 0
   sceneNameToLoad: 
   delayBeforeNextSequence: 0
   soundBankName: EpiEndSoundBank
   audioEvtName: PlayEndMusic
   delay: 0
+  barInfo: []
+  profile: {fileID: 0}
+  updateColorFromValence: 0
+  forceSynchronize: 0
+  timeValue: 0

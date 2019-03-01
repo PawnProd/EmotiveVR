@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6cfb532e7f4f6d469a4d9de4a5aa26f, type: 3}
   m_Name: 04_Opening Credits
   m_EditorClassIdentifier: 
-  clip: {fileID: 32900000, guid: 4f340a61e342c3f4f92497a58b6e96da, type: 3}
+  clip: {fileID: 32900000, guid: 475ae5d4d2536394ca0dbcbd3c265fed, type: 3}
   rt: {fileID: 8400000, guid: dafe30d3fe1a16248b11f3ce01ede5cf, type: 2}
   showEmotionalBar: 0
   addScene: 0
   waitInteraction: 0
+  clearVideo: 0
+  usePostProcess: 0
   sceneNameToLoad: 
   delayBeforeNextSequence: 0
   soundBankName: OpenProSoundBank
   audioEvtName: PlayTitleMusic
   delay: 0
+  barInfo: []
+  profile: {fileID: 0}
+  updateColorFromValence: 0
+  forceSynchronize: 0
+  timeValue: 0

@@ -54,8 +54,6 @@ public class ChoiceSequence : MonoBehaviour
         }
         _fadePercent = 0;
         GetComponent<AudioSource>().volume = 0;
-        DirectorSequencer.Instance.ValidateChoice(this);
-
     }
 
     IEnumerator CO_FadeInChoiceSequence()

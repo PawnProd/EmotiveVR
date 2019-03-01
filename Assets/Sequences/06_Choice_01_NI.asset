@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6cfb532e7f4f6d469a4d9de4a5aa26f, type: 3}
-  m_Name: 01_Introduction
+  m_Name: 06_Choice_01_NI
   m_EditorClassIdentifier: 
-  clip: {fileID: 32900000, guid: d9a508b3aefec754d9bbe1b87efb7087, type: 3}
-  rt: {fileID: 8400000, guid: 53ae36cdfab4f7b40bfd6031977931f3, type: 2}
+  clip: {fileID: 32900000, guid: 2e399813084f52a498c9646f15efbf85, type: 3}
+  rt: {fileID: 8400000, guid: 7048ddd7200750b4d8429b2c1ae46a10, type: 2}
   showEmotionalBar: 0
-  addScene: 0
-  waitInteraction: 0
+  addScene: 1
+  waitInteraction: 1
   clearVideo: 0
   usePostProcess: 0
-  sceneNameToLoad: 
+  sceneNameToLoad: 06_ViewpointChoice_01_NI
   delayBeforeNextSequence: 0
-  soundBankName: IntroSoundBank
-  audioEvtName: PlayIntroduction1
-  delay: 0
+  soundBankName: Choice2SoundBank
+  audioEvtName: PlayOldFreud1
+  delay: 5
   barInfo: []
   profile: {fileID: 0}
   updateColorFromValence: 0

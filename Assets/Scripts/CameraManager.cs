@@ -10,6 +10,11 @@ public class CameraManager : MonoBehaviour
 
     public float speed;
 
+    public bool controlCameraWithMouse;
+    public float speedHorizontal;
+    public float speedVertical;
+
+
     public Color positiveValenceColor;
     public Color negativeValenceColor;
     public Color neutralColor;
@@ -19,6 +24,10 @@ public class CameraManager : MonoBehaviour
     private float _colorRatio;
     private Color _filterColorStart;
     private Color _filterColorEnd;
+
+    private float yaw = 0;
+    private float pitch = 0;
+
     private bool _lerpFilterColor;  
 
     private void Awake()
@@ -76,6 +85,14 @@ public class CameraManager : MonoBehaviour
             _lerpFilterColor = _colorRatio < 1;
             _colorRatio += Time.deltaTime * speed;
             _colorGradingLayer.colorFilter.value = Color.Lerp(_filterColorStart, _filterColorEnd, _colorRatio);
+        }
+
+        if(controlCameraWithMouse)
+        {
+            pitch -= speedVertical * Input.GetAxis("Mouse Y");
+            yaw += speedHorizontal * Input.GetAxis("Mouse X");
+
+            transform.eulerAngles = new Vector3(pitch, yaw, 0);
         }
     }
 }

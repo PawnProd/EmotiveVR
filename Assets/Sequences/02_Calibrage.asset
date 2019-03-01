@@ -17,5 +17,15 @@ MonoBehaviour:
   showEmotionalBar: 0
   addScene: 1
   waitInteraction: 0
+  clearVideo: 1
+  usePostProcess: 0
   sceneNameToLoad: 02_Calibrage
   delayBeforeNextSequence: 250
+  soundBankName: 
+  audioEvtName: 
+  delay: 0
+  barInfo: []
+  profile: {fileID: 0}
+  updateColorFromValence: 0
+  forceSynchronize: 0
+  timeValue: 0

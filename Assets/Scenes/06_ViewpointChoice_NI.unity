@@ -434,7 +434,7 @@ Transform:
   m_GameObject: {fileID: 1226244382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 271, y: -84, z: 120}
-  m_LocalScale: {x: 80, y: 500, z: 138}
+  m_LocalScale: {x: 80, y: 500, z: 80}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequences:
   - {fileID: 11400000, guid: 9f753c4ddf8767b4fbd4e6c54c231a9c, type: 2}
-  - {fileID: 11400000, guid: c5cf3bc70a3e7604c8f268d3d781586e, type: 2}
+  - {fileID: 11400000, guid: 3b779acc4fbd3c24f91d1ed5e0b59793, type: 2}
   nextSequence: 0
   blockHide: 0
   epilogue: 0
@@ -522,7 +522,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: fdc82bb014870dc478d8a9e01ed8d9aa,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 7635d3d91a069a64687b57c4bb9217f5, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -696,7 +696,7 @@ Transform:
   m_GameObject: {fileID: 1320922515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 271, y: 0, z: -188}
-  m_LocalScale: {x: 80, y: 300, z: 138}
+  m_LocalScale: {x: 80, y: 300, z: 80}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -715,7 +715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequences:
   - {fileID: 11400000, guid: a78ee224884f7df4ca265752640f0c49, type: 2}
-  - {fileID: 11400000, guid: 9f2bffff0afb72c42b29a040078127ba, type: 2}
+  - {fileID: 11400000, guid: b3f634180eaf83540816bc11a5f53760, type: 2}
   nextSequence: 0
   blockHide: 0
   epilogue: 0
@@ -784,7 +784,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: fdc82bb014870dc478d8a9e01ed8d9aa,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 6bde99e54a28f644e943edad2ebdfcaf, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

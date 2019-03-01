@@ -8,17 +8,24 @@ public class DirectorSequencer : MonoBehaviour
 {
     public static DirectorSequencer Instance { private set; get; }
 
+    
+    [Header("Control Sequences")]
     public int indexSequence = 0;
 
     public List<Sequence> sequences;
 
     public Sequence currentSequence;
 
+    public float timeToChoice = 5;
+
     [Header("References")]
     public Camera cam;
     public VideoPlayer player;
     public GameObject emotionalBar;
     public AudioManager audioManager;
+    public Animator fadeAnimator;
+
+    public bool useVR = false;
 
     public bool play = false;
     public bool waitEndScene = false;
@@ -31,6 +38,8 @@ public class DirectorSequencer : MonoBehaviour
     public float delay;
     public float updateValenceTime = 1;
     public float synchronizeTimer = 0;
+
+    private float _timerChoice = 0;
     private Quaternion startRotation;
     private GameObject _hitObject;
 
@@ -47,7 +56,8 @@ public class DirectorSequencer : MonoBehaviour
 
         // Read all the valence data in the csv file
         DataReader.Init("Data_Valence.csv");
-        SetNextVideo();
+        player.playOnAwake = false;
+        PrepareVideo();
     }
 
     private void Update()
@@ -61,7 +71,7 @@ public class DirectorSequencer : MonoBehaviour
                 waitEndScene = false;
                 timer = 0;
                 RemoveScene();
-                SetNextVideo();
+                StartCoroutine(CO_FadeIn());
             }
         }
 
@@ -77,10 +87,20 @@ public class DirectorSequencer : MonoBehaviour
                     if(hit.collider.CompareTag("Choice") && _hitObject != hit.collider.gameObject)
                     {
                         if (_hitObject != null)
-                            _hitObject.GetComponent<ChoiceSequence>().FadeInSequence();
+                            _hitObject.GetComponent<ChoiceSequence>().FadeOutSequence();
 
+                        _timerChoice = 0;
                         _hitObject = hit.collider.gameObject;
-                        _hitObject.GetComponent<ChoiceSequence>().FadeOutSequence();
+                        _hitObject.GetComponent<AudioSource>().Play();
+                    }
+                    else if(_hitObject == hit.collider.gameObject)
+                    {
+                        _timerChoice += Time.deltaTime;
+
+                        if(_timerChoice >= timeToChoice)
+                        {
+                            ValidateChoice(_hitObject.GetComponent<ChoiceSequence>());
+                        }
                     }
                 }
                
@@ -103,88 +123,108 @@ public class DirectorSequencer : MonoBehaviour
         activeRaycast = false;
         showEpilogue = true;
         RemoveScene();
-        SetNextVideo();
+        StartCoroutine(CO_FadeIn());
     }
 
-    private void SetNextVideo()
-    {
-        // We reset the camera rotation to avoid some bug in the choice scene
-        cam.transform.rotation = startRotation;
 
-        if(indexSequence < sequences.Count)
+    private void PrepareVideo()
+    {
+        if (indexSequence < sequences.Count)
         {
             currentSequence = sequences[indexSequence];
-
-            emotionalBar.SetActive(currentSequence.showEmotionalBar);
-
-            // SETUP ADDITIONAL SCENE
-            if (currentSequence.addScene)
-            {
-                AddScene(currentSequence);
-
-                if(currentSequence.waitInteraction)
-                {
-                    activeRaycast = true;
-                }
-            }
-
-            // SETUP VIDEO
             if (currentSequence.clip != null)
             {
                 SetupSequence(currentSequence);
-            }
-
-            if(currentSequence.clearVideo)
-            {
-                player.Stop();
-                cam.clearFlags = CameraClearFlags.SolidColor;
-                cam.backgroundColor = Color.black;
-                audioManager.UnloadSoundBank();
+                player.Prepare();
+                player.prepareCompleted += SetNextVideo;
             }
             else
             {
-                cam.clearFlags = CameraClearFlags.Skybox;
+                SetNextVideo(player);
             }
-
-            // SETUP EMOTIONAL BAR
-            if(currentSequence.showEmotionalBar)
-            {
-                audioManager.SetNewValenceValue(DataReader.GetValence());
-                StartCoroutine(CO_UpdateValenceTime());
-
-                if(currentSequence.barInfo.Count > 0)
-                {
-                    emotionalBar.GetComponent<EmotionBar>().MapBarInfo(currentSequence.barInfo);
-                }
-            }
-
-            // SETUP AUDIO
-            if (!string.IsNullOrEmpty(currentSequence.soundBankName))
-            {
-                audioManager.LoadSoundBank(currentSequence.soundBankName);
-            }
-
-            if (!string.IsNullOrEmpty(currentSequence.audioEvtName))
-            {
-                StartCoroutine(CO_WaitVideoToLaunchAudio());
-            }
-
-            if(currentSequence.usePostProcess)
-            {
-                cam.GetComponent<CameraManager>().SetPostProcess(true, currentSequence.profile);
-            }
-            else
-            {
-                cam.GetComponent<CameraManager>().SetPostProcess(false, null);
-            }
-            
-
-            ++indexSequence;
+           
         }
-        
-        
     }
 
+    private void SetNextVideo(VideoPlayer vp)
+    {
+        player.prepareCompleted -= SetNextVideo;
+        // We reset the camera rotation to avoid some bug in the choice scene
+        cam.transform.rotation = startRotation;
+
+        emotionalBar.SetActive(currentSequence.showEmotionalBar);
+
+        // SETUP ADDITIONAL SCENE
+        if (currentSequence.addScene)
+        {
+            AddScene(currentSequence);
+
+            if(currentSequence.waitInteraction)
+            {
+                activeRaycast = true;
+            }
+        }
+
+        if(currentSequence.clearVideo)
+        {
+            player.Stop();
+            cam.clearFlags = CameraClearFlags.SolidColor;
+            cam.backgroundColor = Color.black;
+            audioManager.UnloadSoundBank();
+        }
+        else
+        {
+            cam.clearFlags = CameraClearFlags.Skybox;
+        }
+
+        // SETUP EMOTIONAL BAR
+        if(currentSequence.showEmotionalBar)
+        {
+            audioManager.SetNewValenceValue(DataReader.GetValence());
+            StartCoroutine(CO_UpdateValenceTime());
+
+            if(currentSequence.barInfo.Count > 0)
+            {
+                emotionalBar.GetComponent<EmotionBar>().MapBarInfo(currentSequence.barInfo);
+            }
+        }
+
+        // SETUP AUDIO
+        if (!string.IsNullOrEmpty(currentSequence.soundBankName))
+        {
+            audioManager.LoadSoundBank(currentSequence.soundBankName);
+        }
+
+        if (!string.IsNullOrEmpty(currentSequence.audioEvtName))
+        {
+            StartCoroutine(CO_WaitVideoToLaunchAudio());
+        }
+
+        if(currentSequence.usePostProcess)
+        {
+            cam.GetComponent<CameraManager>().SetPostProcess(true, currentSequence.profile);
+        }
+        else
+        {
+            cam.GetComponent<CameraManager>().SetPostProcess(false, null);
+        }
+        StartCoroutine(CO_FadeOut());
+        ++indexSequence;
+    }
+
+    // Callback when the video is finish
+    private void EndVideo(VideoPlayer vp)
+    {
+        player.Stop();
+        // Check if we can go to the next video
+        if (!currentSequence.waitInteraction && currentSequence.delayBeforeNextSequence == 0)
+        {
+            StartCoroutine(CO_FadeIn());
+        }
+
+    }
+
+    #region Sequences
     // Set the sequence to the scene. Update video and render texture and set to the skybox material. Active the bar if it's necessary
     private void SetupSequence(Sequence sequence)
     {
@@ -194,23 +234,20 @@ public class DirectorSequencer : MonoBehaviour
 
     }
 
-    // Callback when the video is finish
-    private void EndVideo(VideoPlayer vp)
-    {
-        // Check if we can go to the next video
-        if(!currentSequence.waitInteraction && currentSequence.delayBeforeNextSequence == 0)
-        {
-            SetNextVideo();
-        }
-        
-    }
-
     // Add a range of new sequences in the list (for the choice scene)
     private void AddSequences(List<Sequence> newSequences)
     {
         sequences.InsertRange(indexSequence, newSequences);
     }
 
+    // Check if the sequence list contains a sequence
+    public bool ContainSequence(Sequence sequence)
+    {
+        return sequences.Contains(sequence);
+    }
+    #endregion
+
+    #region Scene Management
     // Load an additional scene in Additive Mode
     private void AddScene(Sequence sequence)
     {
@@ -225,12 +262,7 @@ public class DirectorSequencer : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(loadedSceneName);
     }
-
-    // Check if the sequence list contains a sequence
-    public bool ContainSequence(Sequence sequence)
-    {
-        return sequences.Contains(sequence);
-    }
+    #endregion
 
     #region Coroutines
     // Update every second the emotional bar if it is active
@@ -271,6 +303,26 @@ public class DirectorSequencer : MonoBehaviour
         audioManager.SetEvent(currentSequence.audioEvtName, currentSequence.delay);
     }
 
+    IEnumerator CO_FadeIn()
+    {
+        fadeAnimator.SetTrigger("FadeIn");
+
+        yield return new WaitForSeconds(fadeAnimator.GetCurrentAnimatorStateInfo(0).length);
+
+        PrepareVideo();
+        yield return null;
+    }
+
+    IEnumerator CO_FadeOut()
+    {
+        fadeAnimator.SetTrigger("FadeOut");
+
+        yield return new WaitForSeconds(fadeAnimator.GetCurrentAnimatorStateInfo(0).length);
+
+        play = true;
+        player.Play();
+        yield return null;
+    }
 
     #endregion
 }

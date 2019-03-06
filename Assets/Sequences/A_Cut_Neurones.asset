@@ -10,22 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6cfb532e7f4f6d469a4d9de4a5aa26f, type: 3}
-  m_Name: 06_Choice_01_NI
+  m_Name: A_Cut_Neurones
   m_EditorClassIdentifier: 
-  clip: {fileID: 32900000, guid: 570c348c57b5df048be0a3e5da9ac09f, type: 3}
-  rt: {fileID: 8400000, guid: 7048ddd7200750b4d8429b2c1ae46a10, type: 2}
-  showEmotionalBar: 0
-  addScene: 1
-  waitInteraction: 1
+  clip: {fileID: 32900000, guid: d04a68627830a3b469fd418a6a0b36b2, type: 3}
+  rt: {fileID: 8400000, guid: 0edf8055d457b5b4c844771a311ce83f, type: 2}
+  cutSequence: 1
+  showEmotionalBar: 1
+  addScene: 0
+  waitInteraction: 0
   clearVideo: 0
   usePostProcess: 0
-  sceneNameToLoad: 06_ViewpointChoice_01_NI
-  delayBeforeNextSequence: 0
-  soundBankName: Choice2SoundBank
-  audioEvtName: PlayChoixMusic
-  delay: 5
+  sceneNameToLoad: 
+  delayBeforeNextSequence: 5
+  soundBankName: 
+  audioEvtName: 
+  delay: 0
   barInfo: []
   profile: {fileID: 0}
   updateColorFromValence: 0
   forceSynchronize: 0
   timeValue: 0
+  activeCut: 0
+  timestampCut: 0
+  time: 0

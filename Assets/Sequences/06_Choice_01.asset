@@ -22,7 +22,7 @@ MonoBehaviour:
   sceneNameToLoad: 06_ViewpointChoice
   delayBeforeNextSequence: 0
   soundBankName: Choice2SoundBank
-  audioEvtName: PlayOldFreud1
+  audioEvtName: PlayChoixMusic
   delay: 5
   barInfo: []
   profile: {fileID: 0}

@@ -66,6 +66,16 @@ public class AudioManager : MonoBehaviour
         musicVolume = newMusicVol;
     }
 
+    public void Pause()
+    {
+        AkSoundEngine.PostEvent("PauseAll", source);
+    }
+
+    public void Resume()
+    {
+        AkSoundEngine.PostEvent("ResumeAll", source);
+    }
+
     private void Update()
     {
         AkSoundEngine.SetRTPCValue(AkSoundEngine.GetIDFromString("AudioVolume"), audioVolume);

@@ -14,6 +14,8 @@ public class Sequence : ScriptableObject
         public Vector3 position;
         public Vector3 rotation;
         public float keyTime;
+        public bool changeText;
+        public bool hide;
     }
 
 
@@ -22,6 +24,7 @@ public class Sequence : ScriptableObject
     public RenderTexture rt;
 
     [Header("Parameters")]
+    public bool cutSequence;
     public bool showEmotionalBar;
     public bool addScene;
     public bool waitInteraction;
@@ -47,6 +50,11 @@ public class Sequence : ScriptableObject
     [Header("Synchronization")]
     public bool forceSynchronize;
     public float timeValue;
+
+    [Header("Cut Interaction")]
+    public bool activeCut;
+    public float timestampCut;
+    public float time;
 
 }
 

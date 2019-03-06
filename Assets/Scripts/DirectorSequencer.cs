@@ -18,9 +18,12 @@ public class DirectorSequencer : MonoBehaviour
 
     public float timeToChoice = 5;
 
+    public RenderTexture cutRt;
+
     [Header("References")]
     public Camera cam;
     public VideoPlayer player;
+    public VideoPlayer cutPlayer;
     public GameObject emotionalBar;
     public AudioManager audioManager;
     public Animator fadeAnimator;
@@ -28,6 +31,7 @@ public class DirectorSequencer : MonoBehaviour
     public bool useVR = false;
 
     public bool play = false;
+    public bool fadeDone = false;
     public bool waitEndScene = false;
     public bool activeRaycast = false;
     public bool showEpilogue = false;
@@ -40,8 +44,12 @@ public class DirectorSequencer : MonoBehaviour
     public float synchronizeTimer = 0;
 
     private float _timerChoice = 0;
+    public float _timerCut = 0;
     private Quaternion startRotation;
     private GameObject _hitObject;
+
+    private bool _cut;
+    private bool _resumeVideo;
 
     private void Awake()
     {
@@ -73,6 +81,22 @@ public class DirectorSequencer : MonoBehaviour
                 RemoveScene();
                 StartCoroutine(CO_FadeIn());
             }
+        }
+
+        if (currentSequence.cutSequence && fadeDone)
+        {
+            timer += Time.deltaTime;
+            if (timer >= delay)
+            {
+                timer = 0;
+                fadeDone = false;
+                StartCoroutine(CO_FadeIn());
+            }
+        }
+
+        if(player.isPlaying)
+        {
+            Debug.Log("Video is playing !");
         }
 
         if(activeRaycast)
@@ -111,6 +135,27 @@ public class DirectorSequencer : MonoBehaviour
                 _hitObject = null;
             }
         }
+
+        if(currentSequence.activeCut && fadeDone)
+        {
+            _timerCut += Time.deltaTime;
+
+            if(_timerCut >= currentSequence.timestampCut)
+            {
+                Debug.Log("Cut !");
+                fadeDone = false;
+                _cut = true;
+                StartCoroutine(CO_FadeIn());
+                _timerCut = 0;
+            }
+
+            if(cutPlayer.isPlaying && _timerCut >= currentSequence.time)
+            {
+                fadeDone = false;
+                EndCut();
+                _timerCut = 0;
+            }
+        }
     }
 
     public void ValidateChoice(ChoiceSequence choice)
@@ -129,6 +174,7 @@ public class DirectorSequencer : MonoBehaviour
 
     private void PrepareVideo()
     {
+        play = false;
         if (indexSequence < sequences.Count)
         {
             currentSequence = sequences[indexSequence];
@@ -148,9 +194,15 @@ public class DirectorSequencer : MonoBehaviour
 
     private void SetNextVideo(VideoPlayer vp)
     {
+        
         player.prepareCompleted -= SetNextVideo;
         // We reset the camera rotation to avoid some bug in the choice scene
         cam.transform.rotation = startRotation;
+
+        if(currentSequence.cutSequence)
+        {
+            SetCut();
+        }
 
         emotionalBar.SetActive(currentSequence.showEmotionalBar);
 
@@ -163,6 +215,11 @@ public class DirectorSequencer : MonoBehaviour
             {
                 activeRaycast = true;
             }
+        }
+
+        if(currentSequence.delayBeforeNextSequence != 0)
+        {
+            delay = currentSequence.delayBeforeNextSequence;
         }
 
         if(currentSequence.clearVideo)
@@ -208,6 +265,12 @@ public class DirectorSequencer : MonoBehaviour
         {
             cam.GetComponent<CameraManager>().SetPostProcess(false, null);
         }
+
+        if(currentSequence.activeCut)
+        {
+            emotionalBar.GetComponent<EmotionBar>().ShowOrHideText(false);
+        }
+
         StartCoroutine(CO_FadeOut());
         ++indexSequence;
     }
@@ -215,6 +278,7 @@ public class DirectorSequencer : MonoBehaviour
     // Callback when the video is finish
     private void EndVideo(VideoPlayer vp)
     {
+        Debug.Log("End Video");
         player.Stop();
         // Check if we can go to the next video
         if (!currentSequence.waitInteraction && currentSequence.delayBeforeNextSequence == 0)
@@ -240,10 +304,85 @@ public class DirectorSequencer : MonoBehaviour
         sequences.InsertRange(indexSequence, newSequences);
     }
 
+
     // Check if the sequence list contains a sequence
     public bool ContainSequence(Sequence sequence)
     {
         return sequences.Contains(sequence);
+    }
+
+    #endregion
+
+    #region Cut
+
+    private void SetCut()
+    {
+        emotionalBar.GetComponent<EmotionBar>().ResetPosition();
+        emotionalBar.GetComponent<EmotionBar>().ShowOrHideText(true);
+        emotionalBar.GetComponent<EmotionBar>().SetText("SEQUENCE INTERACTIVE", "Le feedback visuel de vos émotions en temps réel apparaîtra sur le miroir de la chambre.");
+    }
+
+    private void CutVideo()
+    {
+        Debug.Log("Cut video !");
+        emotionalBar.SetActive(false);
+        player.Pause();
+        audioManager.Pause();
+        RenderSettings.skybox.mainTexture = cutRt;
+        StartCoroutine(CO_FadeOut());
+    }
+
+    private void EndCut()
+    {
+        cutPlayer.Stop();
+        _resumeVideo = true;
+        StartCoroutine(CO_FadeIn());
+    }
+
+    private void ResumeVideo()
+    {
+        RenderSettings.skybox.mainTexture = currentSequence.rt;
+        StartCoroutine(CO_FadeOut());
+    }
+    #endregion
+
+    #region Fade Event
+
+    public void EndFadeIn()
+    {
+        if(_cut)
+        {
+            CutVideo();
+        }
+        else if(_resumeVideo)
+        {
+            ResumeVideo();
+        }
+        else
+        {
+            PrepareVideo();
+        }
+    }
+
+    public void EndFadeOut()
+    {
+        if (_cut)
+        {
+            Debug.Log("Play cut !");
+            _cut = false;
+            cutPlayer.Play();
+        }
+        else if (_resumeVideo)
+        {
+            _resumeVideo = false;
+            player.Play();
+            audioManager.Resume();
+        }
+        else
+        {
+            play = true;
+            player.Play();
+        }
     }
     #endregion
 
@@ -254,7 +393,7 @@ public class DirectorSequencer : MonoBehaviour
         SceneManager.LoadScene(sequence.sceneNameToLoad, LoadSceneMode.Additive);
         waitEndScene = true;
         loadedSceneName = sequence.sceneNameToLoad;
-        delay = sequence.delayBeforeNextSequence;
+        
     }
 
     // Unload an scene
@@ -305,11 +444,13 @@ public class DirectorSequencer : MonoBehaviour
 
     IEnumerator CO_FadeIn()
     {
+        Debug.Log("FADE IN !");
+        fadeDone = false;
         fadeAnimator.SetTrigger("FadeIn");
 
         yield return new WaitForSeconds(fadeAnimator.GetCurrentAnimatorStateInfo(0).length);
 
-        PrepareVideo();
+        EndFadeIn();
         yield return null;
     }
 
@@ -319,10 +460,9 @@ public class DirectorSequencer : MonoBehaviour
 
         yield return new WaitForSeconds(fadeAnimator.GetCurrentAnimatorStateInfo(0).length);
 
-        play = true;
-        player.Play();
+        fadeDone = true;
+        EndFadeOut();
         yield return null;
     }
-
     #endregion
 }

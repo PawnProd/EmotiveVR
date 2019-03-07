@@ -1,0 +1,50 @@
+1
+00:00:02,500 --> 00:00:05,800
+Your brain signal
+is now calibrated.
+
+2
+00:00:06,000 --> 00:00:07,000
+You see before you,
+
+3
+00:00:07,200 --> 00:00:11,800
+a graphic representation of
+your emotions made in real time.
+
+4
+00:00:12,300 --> 00:00:17,000
+Valence: these are pleasant
+or unpleasant emotions,
+
+5
+00:00:17,200 --> 00:00:20,000
+positive or negative.
+
+6
+00:00:23,200 --> 00:00:26,500
+Your emotional data will
+cause the soundtrack of the film
+
+7
+00:00:26,750 --> 00:00:28,650
+and some visual aspects to vary.
+
+8
+00:00:29,60 --> 00:00:31,000
+This interaction is not permanent,
+
+9
+00:00:31,200 --> 00:00:34,500
+a signal will appear on
+the image when it’s happening. 
+
+10
+00:00:37,450 --> 00:00:40,800
+I will leave you now in
+the company of Sigmund Freud,
+
+11
+00:00:41,000 --> 00:00:44,600
+who is waiting for you
+in Vienna, the year is 1938.

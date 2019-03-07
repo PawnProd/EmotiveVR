@@ -22,6 +22,7 @@ public class DirectorSequencer : MonoBehaviour
 
     [Header("References")]
     public Camera cam;
+    public SRTManager srtManager;
     public VideoPlayer player;
     public VideoPlayer cutPlayer;
     public GameObject emotionalBar;
@@ -58,6 +59,8 @@ public class DirectorSequencer : MonoBehaviour
 
     private void Start()
     {
+        srtManager.Init(sequences);
+
         // Add a callback when the video is finished
         player.loopPointReached += EndVideo;
         startRotation = cam.transform.rotation;
@@ -70,92 +73,90 @@ public class DirectorSequencer : MonoBehaviour
 
     private void Update()
     {
-        // If we load an additional scene and we didn't wait an interaction
-        if(waitEndScene && !activeRaycast)
+        if(currentSequence != null)
         {
-            timer += Time.deltaTime;
-            if(timer >= delay)
+            // If we load an additional scene and we didn't wait an interaction
+            if (waitEndScene && !activeRaycast)
             {
-                waitEndScene = false;
-                timer = 0;
-                RemoveScene();
-                StartCoroutine(CO_FadeIn());
-            }
-        }
-
-        if (currentSequence.cutSequence && fadeDone)
-        {
-            timer += Time.deltaTime;
-            if (timer >= delay)
-            {
-                timer = 0;
-                fadeDone = false;
-                StartCoroutine(CO_FadeIn());
-            }
-        }
-
-        if(player.isPlaying)
-        {
-            Debug.Log("Video is playing !");
-        }
-
-        if(activeRaycast)
-        {
-            RaycastHit hit;
-            // We fire a raycast from the camera position to the camera forward
-            Debug.DrawRay(cam.transform.position, cam.transform.forward, Color.red);
-            if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, Mathf.Infinity))
-            {
-                if(hit.collider != null)
+                timer += Time.deltaTime;
+                if (timer >= delay)
                 {
-                    if(hit.collider.CompareTag("Choice") && _hitObject != hit.collider.gameObject)
-                    {
-                        if (_hitObject != null)
-                            _hitObject.GetComponent<ChoiceSequence>().FadeOutSequence();
+                    waitEndScene = false;
+                    timer = 0;
+                    RemoveScene();
+                    StartCoroutine(CO_FadeIn());
+                }
+            }
 
-                        _timerChoice = 0;
-                        _hitObject = hit.collider.gameObject;
-                        _hitObject.GetComponent<AudioSource>().Play();
-                    }
-                    else if(_hitObject == hit.collider.gameObject)
-                    {
-                        _timerChoice += Time.deltaTime;
+            if (currentSequence.cutSequence && fadeDone)
+            {
+                timer += Time.deltaTime;
+                if (timer >= delay)
+                {
+                    timer = 0;
+                    fadeDone = false;
+                    StartCoroutine(CO_FadeIn());
+                }
+            }
 
-                        if(_timerChoice >= timeToChoice)
+            if (activeRaycast)
+            {
+                RaycastHit hit;
+                // We fire a raycast from the camera position to the camera forward
+                Debug.DrawRay(cam.transform.position, cam.transform.forward, Color.red);
+                if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, Mathf.Infinity))
+                {
+                    if (hit.collider != null)
+                    {
+                        if (hit.collider.CompareTag("Choice") && _hitObject != hit.collider.gameObject)
                         {
-                            ValidateChoice(_hitObject.GetComponent<ChoiceSequence>());
+                            if (_hitObject != null)
+                                _hitObject.GetComponent<ChoiceSequence>().FadeOutSequence();
+
+                            _timerChoice = 0;
+                            _hitObject = hit.collider.gameObject;
+                            _hitObject.GetComponent<AudioSource>().Play();
+                        }
+                        else if (_hitObject == hit.collider.gameObject)
+                        {
+                            _timerChoice += Time.deltaTime;
+
+                            if (_timerChoice >= timeToChoice)
+                            {
+                                ValidateChoice(_hitObject.GetComponent<ChoiceSequence>());
+                            }
                         }
                     }
+
                 }
-               
+                else if (_hitObject != null)
+                {
+                    _hitObject.GetComponent<ChoiceSequence>().FadeInSequence();
+                    _hitObject = null;
+                }
             }
-            else if(_hitObject != null)
+
+            if (currentSequence.activeCut && fadeDone)
             {
-                _hitObject.GetComponent<ChoiceSequence>().FadeInSequence();
-                _hitObject = null;
+                _timerCut += Time.deltaTime;
+
+                if (_timerCut >= currentSequence.timestampCut)
+                {
+                    fadeDone = false;
+                    _cut = true;
+                    StartCoroutine(CO_FadeIn());
+                    _timerCut = 0;
+                }
+
+                if (cutPlayer.isPlaying && _timerCut >= currentSequence.time)
+                {
+                    fadeDone = false;
+                    EndCut();
+                    _timerCut = 0;
+                }
             }
         }
-
-        if(currentSequence.activeCut && fadeDone)
-        {
-            _timerCut += Time.deltaTime;
-
-            if(_timerCut >= currentSequence.timestampCut)
-            {
-                Debug.Log("Cut !");
-                fadeDone = false;
-                _cut = true;
-                StartCoroutine(CO_FadeIn());
-                _timerCut = 0;
-            }
-
-            if(cutPlayer.isPlaying && _timerCut >= currentSequence.time)
-            {
-                fadeDone = false;
-                EndCut();
-                _timerCut = 0;
-            }
-        }
+       
     }
 
     public void ValidateChoice(ChoiceSequence choice)
@@ -271,6 +272,7 @@ public class DirectorSequencer : MonoBehaviour
             emotionalBar.GetComponent<EmotionBar>().ShowOrHideText(false);
         }
 
+        srtManager.SetSubtitles(currentSequence.name);
         StartCoroutine(CO_FadeOut());
         ++indexSequence;
     }
@@ -278,7 +280,6 @@ public class DirectorSequencer : MonoBehaviour
     // Callback when the video is finish
     private void EndVideo(VideoPlayer vp)
     {
-        Debug.Log("End Video");
         player.Stop();
         // Check if we can go to the next video
         if (!currentSequence.waitInteraction && currentSequence.delayBeforeNextSequence == 0)
@@ -324,7 +325,6 @@ public class DirectorSequencer : MonoBehaviour
 
     private void CutVideo()
     {
-        Debug.Log("Cut video !");
         emotionalBar.SetActive(false);
         player.Pause();
         audioManager.Pause();
@@ -368,7 +368,6 @@ public class DirectorSequencer : MonoBehaviour
     {
         if (_cut)
         {
-            Debug.Log("Play cut !");
             _cut = false;
             cutPlayer.Play();
         }
@@ -380,6 +379,7 @@ public class DirectorSequencer : MonoBehaviour
         }
         else
         {
+            StartCoroutine(srtManager.Begin());
             play = true;
             player.Play();
         }
@@ -444,7 +444,6 @@ public class DirectorSequencer : MonoBehaviour
 
     IEnumerator CO_FadeIn()
     {
-        Debug.Log("FADE IN !");
         fadeDone = false;
         fadeAnimator.SetTrigger("FadeIn");
 

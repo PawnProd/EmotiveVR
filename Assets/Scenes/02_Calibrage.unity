@@ -439,7 +439,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad6d9a7ea9da7aa4eae52be2babc5f1e, type: 3}
   - {fileID: 21300000, guid: 6b25331ac25f2c643bc0b1ac85a7703d, type: 3}
   imgRenderer: {fileID: 2003233398}
-  nbImgToShow: 5
+  nbImgToShow: 10
   timeShowImg: 2
 --- !u!4 &2014784884
 Transform:

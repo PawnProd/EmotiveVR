@@ -1,0 +1,59 @@
+1
+00:00:05,300 --> 00:00:06,300
+You’re about to have
+
+2
+00:00:06,500 --> 00:00:09,000
+an Emotive Virtual Reality experience.
+
+3
+00:00:09,267 --> 00:00:12,700
+The film you will see,
+"Freud’s Last Hypnosis"
+
+4
+00:00:13,000 --> 00:00:17,200
+is an interactive movie that
+changes according to your emotions.
+
+5
+00:00:17,460 --> 00:00:22,300
+These emotions are analyzed via
+the EEG headset you’re wearing,
+
+6
+00:00:22,500 --> 00:00:25,660
+combined with the
+virtual reality headset.
+
+7
+00:00:26,160 --> 00:00:28,600
+You will begin with
+a calibration phase,
+
+8
+00:00:28,800 --> 00:00:30,150
+lasting five minutes.
+
+9
+00:00:30,460 --> 00:00:32,000
+Using the IAPS system,
+
+10
+00:00:32,300 --> 00:00:36,500
+we’re going to show you a series
+of images developed by psychologists.
+
+11
+00:00:36,900 --> 00:00:40,400
+These will allow us to adapt
+our analysis to the particularity
+
+12
+00:00:40,600 --> 00:00:42,100
+of your brain signal.
+
+13
+00:00:42,500 --> 00:00:47,600
+We must warn you,
+some images may be shocking.

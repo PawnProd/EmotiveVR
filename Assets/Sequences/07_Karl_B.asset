@@ -38,7 +38,7 @@ MonoBehaviour:
     hide: 0
   - position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    keyTime: 165
+    keyTime: 167
     changeText: 0
     hide: 1
   profile: {fileID: 11400000, guid: 42d42946b0e5ff44b9ea62ec784cd894, type: 2}

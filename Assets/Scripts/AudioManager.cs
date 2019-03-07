@@ -44,6 +44,7 @@ public class AudioManager : MonoBehaviour
 
     public void UnloadSoundBank()
     {
+        currentBankName = string.Empty;
         AkSoundEngine.StopAll();
         AkBankManager.UnloadBank(currentBankName);
     }

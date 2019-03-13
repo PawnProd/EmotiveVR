@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ChoiceSequence : MonoBehaviour
 {
+    public GameObject effect;
     public List<Sequence> sequences;
     public bool nextSequence = false;
     public bool blockHide = false;
     public bool epilogue = false;
+    public bool invert = false;
 
     private float _fadePercent = 1;
 
@@ -48,7 +50,7 @@ public class ChoiceSequence : MonoBehaviour
     {
         while (_fadePercent > 0)
         {
-            _fadePercent -= Time.deltaTime / 3;
+            _fadePercent -= Time.deltaTime * (1 / DirectorSequencer.Instance.timeToChoice);
             GetComponent<AudioSource>().volume = _fadePercent;
             yield return null;
         }
@@ -60,7 +62,7 @@ public class ChoiceSequence : MonoBehaviour
     {
         while (_fadePercent < 1)
         {
-            _fadePercent += Time.deltaTime;
+            _fadePercent += Time.deltaTime * (1 / DirectorSequencer.Instance.timeToChoice);
             GetComponent<AudioSource>().volume = _fadePercent;
             yield return null;
         }
@@ -68,5 +70,11 @@ public class ChoiceSequence : MonoBehaviour
         _fadePercent = 1;
         GetComponent<AudioSource>().volume = 1;
 
+    }
+
+    public void ActiveEffect(bool active)
+    {
+        Debug.Log("Active effect !");
+        effect.SetActive(active);
     }
 }

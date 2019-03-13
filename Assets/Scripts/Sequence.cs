@@ -37,7 +37,7 @@ public class Sequence : ScriptableObject
 
     [Header("Audio")]
     public string soundBankName;
-    public string audioEvtName;
+    public List<string> audioEvtNames;
     public float delay;
 
     [Header("Emotional Bar Param")]

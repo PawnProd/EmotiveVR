@@ -23,7 +23,8 @@ MonoBehaviour:
   sceneNameToLoad: 
   delayBeforeNextSequence: 0
   soundBankName: KarlSoundBank
-  audioEvtName: PlayKarlAudioB
+  audioEvtNames:
+  - PlayKarlAudioB
   delay: 0
   barInfo:
   - position: {x: 287, y: 57.6, z: -96}

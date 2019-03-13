@@ -23,57 +23,69 @@ MonoBehaviour:
   sceneNameToLoad: 
   delayBeforeNextSequence: 0
   soundBankName: FreudSoundBank
-  audioEvtName: PlayFreudAudioB
+  audioEvtNames:
+  - PlayFreudAudioB
   delay: 0
   barInfo:
   - position: {x: 253, y: 44.2, z: -156.2}
     rotation: {x: 0, y: 129.852, z: 0}
     keyTime: 0
+    changeText: 0
     hide: 0
   - position: {x: -21.9, y: 46, z: 133.5}
     rotation: {x: -7.086, y: 404.753, z: -3.805}
     keyTime: 31.7
+    changeText: 0
     hide: 0
   - position: {x: -231.4, y: 36.6, z: -58.7}
     rotation: {x: -1.49, y: 279.146, z: -1.831}
     keyTime: 72.7
+    changeText: 0
     hide: 0
   - position: {x: -88, y: 48, z: 106}
     rotation: {x: -6.218, y: 371.875, z: -4.698}
     keyTime: 79.5
+    changeText: 0
     hide: 0
   - position: {x: -210, y: 41, z: -172}
     rotation: {x: 0.255, y: 258.776, z: -1.934}
     keyTime: 86.5
+    changeText: 0
     hide: 0
   - position: {x: -147, y: 50.9, z: -39.8}
     rotation: {x: -2.845, y: 300.318, z: -1.434}
     keyTime: 92.7
+    changeText: 0
     hide: 0
   - position: {x: 250, y: 42, z: 134}
     rotation: {x: -2.964, y: 84.76501, z: -1.743}
     keyTime: 112.1
+    changeText: 0
     hide: 0
   - position: {x: 33, y: 52.3, z: -155}
     rotation: {x: -9.1, y: 212.381, z: -0.99}
     keyTime: 118.9
+    changeText: 0
     hide: 0
   - position: {x: 295, y: 46, z: -30}
     rotation: {x: 0.807, y: 108.123, z: 0.299}
     keyTime: 176.7
+    changeText: 0
     hide: 0
   - position: {x: -79.4, y: 51.5, z: 133.1}
     rotation: {x: -1.775, y: 12.272, z: -1.232}
     keyTime: 200.8
+    changeText: 0
     hide: 0
   - position: {x: 225, y: 35, z: -34}
     rotation: {x: -5.243, y: 270.91, z: 92.178}
     keyTime: 222
+    changeText: 0
     hide: 0
   profile: {fileID: 0}
   updateColorFromValence: 0
   forceSynchronize: 1
   timeValue: 0.5
-  activeCut: 1
+  activeCut: 0
   timestampCut: 223
   time: 5

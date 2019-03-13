@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6cfb532e7f4f6d469a4d9de4a5aa26f, type: 3}
   m_Name: 09_Credits
   m_EditorClassIdentifier: 
-  clip: {fileID: 32900000, guid: d77eb742e23efd141aa6d7b328a2e18d, type: 3}
+  clip: {fileID: 32900000, guid: 96ef55821b6e2944887e48ba9b09d682, type: 3}
   rt: {fileID: 8400000, guid: eb58606eb91a54b49820be102a0d83ba, type: 2}
+  cutSequence: 0
   showEmotionalBar: 0
   addScene: 0
   waitInteraction: 0
@@ -22,10 +23,14 @@ MonoBehaviour:
   sceneNameToLoad: 
   delayBeforeNextSequence: 0
   soundBankName: EpiEndSoundBank
-  audioEvtName: PlayEndMusic
+  audioEvtNames:
+  - PlayEndMusic
   delay: 0
   barInfo: []
   profile: {fileID: 0}
   updateColorFromValence: 0
   forceSynchronize: 0
   timeValue: 0
+  activeCut: 0
+  timestampCut: 0
+  time: 0

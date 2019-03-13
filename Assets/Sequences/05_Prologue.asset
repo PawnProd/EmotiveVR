@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 0}
   rt: {fileID: 0}
+  cutSequence: 0
   showEmotionalBar: 0
   addScene: 1
   waitInteraction: 0
-  clearVideo: 0
+  clearVideo: 1
   usePostProcess: 1
   sceneNameToLoad: 01_OldFreud
   delayBeforeNextSequence: 117
@@ -29,3 +30,6 @@ MonoBehaviour:
   updateColorFromValence: 0
   forceSynchronize: 0
   timeValue: 0
+  activeCut: 0
+  timestampCut: 0
+  time: 0

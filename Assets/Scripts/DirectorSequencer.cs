@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
+using Valve.VR;
 
 public class DirectorSequencer : MonoBehaviour
 {
@@ -11,41 +12,46 @@ public class DirectorSequencer : MonoBehaviour
     
     [Header("Control Sequences")]
     public int indexSequence = 0;
-
     public List<Sequence> sequences;
-
     public Sequence currentSequence;
 
+    [Header("Parameters")]
     public float timeToChoice = 5;
 
-    public RenderTexture cutRt;
+    public float timer = 0;
+    public float delay;
+    public float updateValenceTime = 1;
+    public float synchronizeTimer = 0;
+    public float timeToFade = 2;
+
+    public string loadedSceneName;
+
+    public bool activeSubtitle = true;
+    public bool vr = false;
 
     [Header("References")]
-    public Camera cam;
+    public List<Camera> allCameras;
     public SRTManager srtManager;
     public VideoPlayer player;
     public VideoPlayer cutPlayer;
     public GameObject emotionalBar;
     public AudioManager audioManager;
     public Animator fadeAnimator;
+    public RenderTexture cutRt;
+    public Canvas canvasSubtitle;
 
-    public bool useVR = false;
+    [HideInInspector] public Camera cam;
 
+    [Header("States")]
     public bool play = false;
     public bool fadeDone = false;
     public bool waitEndScene = false;
     public bool activeRaycast = false;
     public bool showEpilogue = false;
 
-    public string loadedSceneName;
-
-    public float timer = 0;
-    public float delay;
-    public float updateValenceTime = 1;
-    public float synchronizeTimer = 0;
-
     private float _timerChoice = 0;
-    public float _timerCut = 0;
+    private float _timerCut = 0;
+
     private Quaternion startRotation;
     private GameObject _hitObject;
 
@@ -55,15 +61,29 @@ public class DirectorSequencer : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        if(vr)
+        {
+            cam = allCameras[1];
+            cam.transform.parent.gameObject.SetActive(true);
+            fadeAnimator.transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            cam = allCameras[0];
+            cam.gameObject.SetActive(true);
+        }
+
+        canvasSubtitle.worldCamera = cam;
     }
 
     private void Start()
     {
-        srtManager.Init(sequences);
+        if(activeSubtitle)
+            srtManager.Init(sequences);
 
         // Add a callback when the video is finished
         player.loopPointReached += EndVideo;
-        startRotation = cam.transform.rotation;
 
         // Read all the valence data in the csv file
         DataReader.Init("Data_Valence.csv");
@@ -84,7 +104,11 @@ public class DirectorSequencer : MonoBehaviour
                     waitEndScene = false;
                     timer = 0;
                     RemoveScene();
-                    StartCoroutine(CO_FadeIn());
+
+                    if(!vr)
+                        StartCoroutine(CO_FadeIn());
+                    else
+                        StartCoroutine(CO_FadeInVR());
                 }
             }
 
@@ -95,7 +119,11 @@ public class DirectorSequencer : MonoBehaviour
                 {
                     timer = 0;
                     fadeDone = false;
-                    StartCoroutine(CO_FadeIn());
+
+                    if (!vr)
+                        StartCoroutine(CO_FadeIn());
+                    else
+                        StartCoroutine(CO_FadeInVR());
                 }
             }
 
@@ -111,10 +139,23 @@ public class DirectorSequencer : MonoBehaviour
                         if (hit.collider.CompareTag("Choice") && _hitObject != hit.collider.gameObject)
                         {
                             if (_hitObject != null)
-                                _hitObject.GetComponent<ChoiceSequence>().FadeOutSequence();
+                            {
+                                if(_hitObject.GetComponent<ChoiceSequence>().invert)
+                                {
+                                    _hitObject.GetComponent<ChoiceSequence>().FadeInSequence();
+                                }
+                                else
+                                {
+                                    _hitObject.GetComponent<ChoiceSequence>().FadeOutSequence();
+                                }
+                                
+                                _hitObject.GetComponent<ChoiceSequence>().ActiveEffect(false);
+                            }
+                                
 
                             _timerChoice = 0;
                             _hitObject = hit.collider.gameObject;
+                            _hitObject.GetComponent<ChoiceSequence>().ActiveEffect(true);
                             _hitObject.GetComponent<AudioSource>().Play();
                         }
                         else if (_hitObject == hit.collider.gameObject)
@@ -131,7 +172,15 @@ public class DirectorSequencer : MonoBehaviour
                 }
                 else if (_hitObject != null)
                 {
-                    _hitObject.GetComponent<ChoiceSequence>().FadeInSequence();
+                    if (_hitObject.GetComponent<ChoiceSequence>().invert)
+                    {
+                        _hitObject.GetComponent<ChoiceSequence>().FadeOutSequence();
+                    }
+                    else
+                    {
+                        _hitObject.GetComponent<ChoiceSequence>().FadeInSequence();
+                    }
+                    _hitObject.GetComponent<ChoiceSequence>().ActiveEffect(false);
                     _hitObject = null;
                 }
             }
@@ -144,7 +193,12 @@ public class DirectorSequencer : MonoBehaviour
                 {
                     fadeDone = false;
                     _cut = true;
-                    StartCoroutine(CO_FadeIn());
+
+                    if (!vr)
+                        StartCoroutine(CO_FadeIn());
+                    else
+                        StartCoroutine(CO_FadeInVR());
+
                     _timerCut = 0;
                 }
 
@@ -169,7 +223,11 @@ public class DirectorSequencer : MonoBehaviour
         activeRaycast = false;
         showEpilogue = true;
         RemoveScene();
-        StartCoroutine(CO_FadeIn());
+
+        if (!vr)
+            StartCoroutine(CO_FadeIn());
+        else
+            StartCoroutine(CO_FadeInVR());
     }
 
 
@@ -195,7 +253,7 @@ public class DirectorSequencer : MonoBehaviour
 
     private void SetNextVideo(VideoPlayer vp)
     {
-        
+
         player.prepareCompleted -= SetNextVideo;
         // We reset the camera rotation to avoid some bug in the choice scene
         cam.transform.rotation = startRotation;
@@ -204,6 +262,7 @@ public class DirectorSequencer : MonoBehaviour
         {
             SetCut();
         }
+
 
         emotionalBar.SetActive(currentSequence.showEmotionalBar);
 
@@ -253,10 +312,11 @@ public class DirectorSequencer : MonoBehaviour
             audioManager.LoadSoundBank(currentSequence.soundBankName);
         }
 
-        if (!string.IsNullOrEmpty(currentSequence.audioEvtName))
+        if(currentSequence.audioEvtNames.Count > 0)
         {
             StartCoroutine(CO_WaitVideoToLaunchAudio());
         }
+       
 
         if(currentSequence.usePostProcess)
         {
@@ -272,8 +332,23 @@ public class DirectorSequencer : MonoBehaviour
             emotionalBar.GetComponent<EmotionBar>().ShowOrHideText(false);
         }
 
-        srtManager.SetSubtitles(currentSequence.name);
-        StartCoroutine(CO_FadeOut());
+        if(activeSubtitle)
+        {
+            srtManager.SetSubtitles(currentSequence.name);
+        }
+
+        Debug.Log("Start Fade out!");
+        if(vr)
+        {
+            StartCoroutine(CO_FadeOutVR());
+        }
+        else
+        {
+            StartCoroutine(CO_FadeOut());
+        }
+        
+        Debug.Log("Coroutine de merde !");
+
         ++indexSequence;
     }
 
@@ -284,7 +359,10 @@ public class DirectorSequencer : MonoBehaviour
         // Check if we can go to the next video
         if (!currentSequence.waitInteraction && currentSequence.delayBeforeNextSequence == 0)
         {
-            StartCoroutine(CO_FadeIn());
+            if (!vr)
+                StartCoroutine(CO_FadeIn());
+            else
+                StartCoroutine(CO_FadeInVR());
         }
 
     }
@@ -325,24 +403,43 @@ public class DirectorSequencer : MonoBehaviour
 
     private void CutVideo()
     {
+        Debug.Log("Cut Video");
         emotionalBar.SetActive(false);
         player.Pause();
         audioManager.Pause();
         RenderSettings.skybox.mainTexture = cutRt;
-        StartCoroutine(CO_FadeOut());
+        if (vr)
+        {
+            StartCoroutine(CO_FadeOutVR());
+        }
+        else
+        {
+            StartCoroutine(CO_FadeOut());
+        }
     }
 
     private void EndCut()
     {
         cutPlayer.Stop();
         _resumeVideo = true;
-        StartCoroutine(CO_FadeIn());
+
+        if (!vr)
+            StartCoroutine(CO_FadeIn());
+        else
+            StartCoroutine(CO_FadeInVR());
     }
 
     private void ResumeVideo()
     {
         RenderSettings.skybox.mainTexture = currentSequence.rt;
-        StartCoroutine(CO_FadeOut());
+        if (vr)
+        {
+            StartCoroutine(CO_FadeOutVR());
+        }
+        else
+        {
+            StartCoroutine(CO_FadeOut());
+        }
     }
     #endregion
 
@@ -350,7 +447,7 @@ public class DirectorSequencer : MonoBehaviour
 
     public void EndFadeIn()
     {
-        if(_cut)
+        if (_cut)
         {
             CutVideo();
         }
@@ -439,11 +536,18 @@ public class DirectorSequencer : MonoBehaviour
             }
         }
         synchronizeTimer = 0;
-        audioManager.SetEvent(currentSequence.audioEvtName, currentSequence.delay);
+        foreach (string evtName in currentSequence.audioEvtNames)
+        {
+            if (!string.IsNullOrEmpty(evtName))
+            {
+                audioManager.SetEvent(evtName, currentSequence.delay);
+            }
+        }
     }
 
     IEnumerator CO_FadeIn()
     {
+        Debug.Log("Fade In !");
         fadeDone = false;
         fadeAnimator.SetTrigger("FadeIn");
 
@@ -455,9 +559,35 @@ public class DirectorSequencer : MonoBehaviour
 
     IEnumerator CO_FadeOut()
     {
+        Debug.Log("Fade Out!");
         fadeAnimator.SetTrigger("FadeOut");
 
         yield return new WaitForSeconds(fadeAnimator.GetCurrentAnimatorStateInfo(0).length);
+
+        fadeDone = true;
+        EndFadeOut();
+        yield return null;
+    }
+
+    IEnumerator CO_FadeInVR()
+    {
+        Debug.Log("Fade In VR!");
+        SteamVR_Fade.Start(Color.clear, 0);
+        SteamVR_Fade.Start(Color.black, timeToFade);
+
+        yield return new WaitForSeconds(timeToFade);
+
+        EndFadeIn();
+        yield return null;
+    }
+
+    IEnumerator CO_FadeOutVR()
+    {
+        
+        SteamVR_Fade.Start(Color.black, 0);
+        SteamVR_Fade.Start(Color.clear, timeToFade);
+
+        yield return new WaitForSeconds(timeToFade);
 
         fadeDone = true;
         EndFadeOut();

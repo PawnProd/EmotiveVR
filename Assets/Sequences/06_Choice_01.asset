@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 32900000, guid: 570c348c57b5df048be0a3e5da9ac09f, type: 3}
   rt: {fileID: 8400000, guid: 7048ddd7200750b4d8429b2c1ae46a10, type: 2}
+  cutSequence: 0
   showEmotionalBar: 0
   addScene: 1
   waitInteraction: 1
@@ -22,10 +23,15 @@ MonoBehaviour:
   sceneNameToLoad: 06_ViewpointChoice
   delayBeforeNextSequence: 0
   soundBankName: Choice2SoundBank
-  audioEvtName: PlayChoixMusic
+  audioEvtNames:
+  - PlayChoixMusic
+  - PlayOldFreud1
   delay: 5
   barInfo: []
   profile: {fileID: 0}
   updateColorFromValence: 0
   forceSynchronize: 0
   timeValue: 0
+  activeCut: 0
+  timestampCut: 0
+  time: 0

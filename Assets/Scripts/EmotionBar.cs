@@ -35,7 +35,6 @@ public class EmotionBar : MonoBehaviour
 
     private void Start()
     {
-        gameObject.SetActive(false);
         _startPosition = GetComponent<RectTransform>().anchoredPosition;
     }
 
@@ -181,7 +180,7 @@ public class EmotionBar : MonoBehaviour
 
             if(_infos[_infoIndex].hide)
             {
-                gameObject.SetActive(false);
+                    gameObject.SetActive(false);
             }
 
                 if(_infoIndex + 1 < _infos.Count)

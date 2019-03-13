@@ -195,7 +195,6 @@ public class SRTManager : MonoBehaviour
 
     IEnumerator FadeTextOut(TextMeshProUGUI text)
     {
-        Debug.Log("Fade out !");
         var toColor = text.color;
         toColor.a = 0;
         yield return Fade(text, toColor, Ease.OutSine);
@@ -203,7 +202,6 @@ public class SRTManager : MonoBehaviour
 
     IEnumerator FadeTextIn(TextMeshProUGUI text)
     {
-        Debug.Log("Fade in !");
         var toColor = text.color;
         toColor.a = 1;
         yield return Fade(text, toColor, Ease.InSine);

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 32900000, guid: a813f4c257bc7484c8d839048ad7d08e, type: 3}
   rt: {fileID: 8400000, guid: 69e77a92ad2022f47b1e20f44e1d76ac, type: 2}
+  cutSequence: 0
   showEmotionalBar: 0
   addScene: 0
   waitInteraction: 0
@@ -22,19 +23,29 @@ MonoBehaviour:
   sceneNameToLoad: 
   delayBeforeNextSequence: 0
   soundBankName: KarlSoundBank
-  audioEvtName: PlayKarlAudioB
+  audioEvtNames:
+  - PlayKarlAudioB
   delay: 0
   barInfo:
   - position: {x: 251.5, y: 103.7, z: -84.2}
     rotation: {x: -2.402, y: 140.634, z: 91.969}
     keyTime: 0
+    changeText: 0
+    hide: 0
   - position: {x: 239, y: 36.3, z: 24}
     rotation: {x: -6.317, y: 78.43101, z: 90.26}
     keyTime: 167
+    changeText: 0
+    hide: 0
   - position: {x: 154, y: 70, z: -149}
     rotation: {x: -18.565, y: 183.558, z: 75.77}
     keyTime: 183
+    changeText: 0
+    hide: 0
   profile: {fileID: 11400000, guid: 42d42946b0e5ff44b9ea62ec784cd894, type: 2}
   updateColorFromValence: 0
   forceSynchronize: 1
   timeValue: 0.5
+  activeCut: 0
+  timestampCut: 0
+  time: 0

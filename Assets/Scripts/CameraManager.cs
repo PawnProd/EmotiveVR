@@ -53,12 +53,9 @@ public class CameraManager : MonoBehaviour
             volume.profile.TryGetSettings(out _colorGradingLayer);
             _colorGradingLayer.enabled.value = true;
         }
-        Debug.Log("Update Color ! = " + valence);
         _colorRatio = 0;
         _filterColorStart = _colorGradingLayer.colorFilter.value;
         _filterColorEnd = (valence < 0.5f) ? InterpolateColor(valence, negativeValenceColor, neutralColor) : InterpolateColor(valence, neutralColor, positiveValenceColor);
-
-        Debug.Log("End color = (" + _filterColorEnd.r + ", " + _filterColorEnd.g + ", " + _filterColorEnd.b + ")");
         _lerpFilterColor = true;
 
     }

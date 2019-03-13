@@ -11,19 +11,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Main_NonInteractive.unity
     guid: e0d16ecd7762586479bbb8cccf3258a0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/02_Calibrage.unity
     guid: bd062549847e39243904558dbde460c7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/01_OldFreud.unity
     guid: 522cc5ac01a16004bbcff701d312acce
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/06_ViewpointChoice.unity
     guid: 2f646224e68106f4aaa19de8de9a5236
   - enabled: 0
     path: Assets/Scenes/06_ViewpointChoice_NI.unity
     guid: 0dcab0c226b89164c831a775b27ad216
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/08_Epilogue.unity
     guid: c2c02a5de6826934e9833620f3413abd
   m_configObjects: {}

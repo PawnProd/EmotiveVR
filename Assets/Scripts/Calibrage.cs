@@ -32,7 +32,6 @@ public class Calibrage : MonoBehaviour
                     ++indexImg;
                     changeImg = false;
                 }
-                Debug.Log("Timer = " + _timer);
                 _timer += Time.deltaTime;
 
                 if (_timer >= timeShowImg)

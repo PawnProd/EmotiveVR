@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 32900000, guid: 9323054368234364eb33462be375cfac, type: 3}
   rt: {fileID: 8400000, guid: 53ae36cdfab4f7b40bfd6031977931f3, type: 2}
+  cutSequence: 0
   showEmotionalBar: 0
   addScene: 0
   waitInteraction: 0
@@ -22,10 +23,14 @@ MonoBehaviour:
   sceneNameToLoad: 
   delayBeforeNextSequence: 0
   soundBankName: IntroSoundBank
-  audioEvtName: PlayIntroduction1
+  audioEvtNames:
+  - PlayIntroduction1
   delay: 0
   barInfo: []
   profile: {fileID: 0}
   updateColorFromValence: 0
   forceSynchronize: 0
   timeValue: 0
+  activeCut: 0
+  timestampCut: 0
+  time: 0

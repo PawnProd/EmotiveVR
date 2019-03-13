@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6938,6 +6938,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cigar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389075325874058788, guid: f0a7c660dc7c22b43a039bb091788320,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7231361246822987801, guid: f0a7c660dc7c22b43a039bb091788320,
         type: 3}

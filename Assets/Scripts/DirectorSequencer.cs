@@ -39,7 +39,7 @@ public class DirectorSequencer : MonoBehaviour
     public Animator fadeAnimator;
     public RenderTexture cutRt;
     public Canvas canvasSubtitle;
-	public GameObject sphereFade;
+	public Animator sphereFade;
 
     [HideInInspector] public Camera cam;
 
@@ -58,7 +58,6 @@ public class DirectorSequencer : MonoBehaviour
 
     private SteamVR_LoadLevel vrSceneManager;
 
-	private Material sphereFadeMat;
 
     private void Awake()
     {
@@ -84,8 +83,6 @@ public class DirectorSequencer : MonoBehaviour
         vrSceneManager = GetComponent<SteamVR_LoadLevel>();
         vrSceneManager.fadeInTime = timeToFade;
         vrSceneManager.fadeOutTime = timeToFade;
-
-		sphereFadeMat = GetComponent<MeshRenderer>().material;
 
         if(activeSubtitle)
             srtManager.Init(sequences);
@@ -447,9 +444,10 @@ public class DirectorSequencer : MonoBehaviour
     IEnumerator CO_FadeInVR()
     {
         Debug.Log("Fade In VR!");
-        
 
-        yield return new WaitForSeconds(timeToFade);
+        sphereFade.SetTrigger("FadeIn");
+
+        yield return new WaitForSeconds(sphereFade.GetCurrentAnimatorStateInfo(0).length);
 
         EndFadeIn();
         yield return null;
@@ -461,8 +459,8 @@ public class DirectorSequencer : MonoBehaviour
 
         Debug.Log("Fade Out VR!");
 
-
-        yield return new WaitForSeconds(timeToFade);
+        sphereFade.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(sphereFade.GetCurrentAnimatorStateInfo(0).length);
 
         fadeDone = true;
         EndFadeOut();

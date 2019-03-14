@@ -20,15 +20,18 @@ public class SRTManager : MonoBehaviour
 
     public void Init(List<Sequence> sequences)
     {
-        Reader reader = new Reader(path);
+        AddSubtitles(sequences);
+        ready = true;
+    }
 
-        foreach(Sequence sequence in sequences)
+    public void AddSubtitles(List<Sequence> sequences)
+    {
+        Reader reader = new Reader(path);
+        foreach (Sequence sequence in sequences)
         {
-            if(!sequenceSubtitles.ContainsKey(sequence.name))
+            if (!sequenceSubtitles.ContainsKey(sequence.name))
                 sequenceSubtitles.Add(sequence.name, reader.Read(sequence.name));
         }
-
-        ready = true;
     }
 
     public class Reader
@@ -58,7 +61,6 @@ public class SRTManager : MonoBehaviour
             float currentTo = 0;
             int index = 0;
             string[] lines = srtFile.text.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
-
             for(int i = 0; i < lines.Length; ++i)
             {
                 
@@ -68,14 +70,13 @@ public class SRTManager : MonoBehaviour
                 switch(state)
                 {
                     case ReaderState.INDEX:
-                        Debug.Log("Coucou ");
                         if (int.TryParse(lines[i], out index))
                         {
                             state = ReaderState.TIMESTAMP;
                         }
                         else
                         {
-                            Debug.LogWarning("<b> [SRTReader] </b> Index is not a integer at line " + i);
+                            Debug.LogWarning("<b> [SRTReader] </b> Index is not a integer at line " + (i + 1));
                         }
 
                     break;
@@ -96,26 +97,25 @@ public class SRTManager : MonoBehaviour
                                 }
                                 else
                                 {
-                                    Debug.LogWarning("<b> [SRTReader] </b> 2nd Timestamp to is not at a correct format at line " + i);
+                                    Debug.LogWarning("<b> [SRTReader] </b> 2nd Timestamp to is not at a correct format at line " + (i + 1));
                                 }
                             }
                             else
                             {
-                                Debug.LogWarning("<b> [SRTReader] </b> 1st Timestamp is not at a correct format at line " + i);
+                                Debug.LogWarning("<b> [SRTReader] </b> 1st Timestamp is not at a correct format at line " + (i + 1));
                             }
                         }
                         else
                         {
-                            Debug.LogWarning("<b> [SRTReader] Timestamp is missing at line " + i);
+                            Debug.LogWarning("<b> [SRTReader] </b> Timestamp is missing at line " + (i + 1));
                         }
 
                     break;
 
                     case ReaderState.TEXT:
 
-                        text += lines[i] + " ";
-
-                        if(string.IsNullOrEmpty(lines[i]) || i == lines.Length - 1)
+                        text += lines[i] ;
+                        if (string.IsNullOrEmpty(lines[i]) || i == lines.Length - 1)
                         {
                             subtitles.Add(new Subtitle(index, currentFrom, currentTo, text));
 
@@ -178,7 +178,6 @@ public class SRTManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Subtitles ended");
                 StartCoroutine(FadeTextOut(currentlyDisplayingText));
                 yield return FadeTextOut(fadedOutText);
                 currentlyDisplayingText.gameObject.SetActive(false);
@@ -216,7 +215,7 @@ public class SRTManager : MonoBehaviour
     {
         if(!sequenceSubtitles.TryGetValue(seqName, out currentSubtitles))
         {
-            Debug.LogError("<b> [SRTManager] Sequence " + seqName + " doesn't have subtitles");
+            Debug.LogError("<b> [SRTManager] </b> Sequence " + seqName + " doesn't have subtitles");
         }
     }
 

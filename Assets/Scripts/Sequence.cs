@@ -13,8 +13,7 @@ public class Sequence : ScriptableObject
     {
         public Vector3 position;
         public Vector3 rotation;
-        public float keyTime;
-        public bool changeText;
+        public long keyFrame;
         public bool hide;
     }
 
@@ -42,6 +41,7 @@ public class Sequence : ScriptableObject
 
     [Header("Emotional Bar Param")]
     public List<BarPositionInfo> barInfo;
+    public bool hideText;
 
     [Header("Post Process")]
     public PostProcessProfile profile;
@@ -50,11 +50,6 @@ public class Sequence : ScriptableObject
     [Header("Synchronization")]
     public bool forceSynchronize;
     public float timeValue;
-
-    [Header("Cut Interaction")]
-    public bool activeCut;
-    public float timestampCut;
-    public float time;
 
 }
 

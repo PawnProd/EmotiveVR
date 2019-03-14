@@ -23,13 +23,11 @@ MonoBehaviour:
   sceneNameToLoad: 
   delayBeforeNextSequence: 5
   soundBankName: 
-  audioEvtName: 
+  audioEvtNames: []
   delay: 0
   barInfo: []
+  hideText: 1
   profile: {fileID: 0}
   updateColorFromValence: 0
   forceSynchronize: 0
   timeValue: 0
-  activeCut: 0
-  timestampCut: 0
-  time: 0

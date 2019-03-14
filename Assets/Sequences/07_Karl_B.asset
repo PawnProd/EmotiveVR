@@ -27,25 +27,16 @@ MonoBehaviour:
   - PlayKarlAudioB
   delay: 0
   barInfo:
-  - position: {x: 287, y: 57.6, z: -96}
-    rotation: {x: -0.162, y: 155.894, z: -0.917}
-    keyTime: 0
-    changeText: 0
+  - position: {x: 290.5, y: 137.5, z: -94}
+    rotation: {x: -11.985, y: 156.086, z: -3.826}
+    keyFrame: 0
     hide: 0
   - position: {x: 68, y: 0, z: 0}
     rotation: {x: 0, y: 90, z: 0}
-    keyTime: 162
-    changeText: 1
+    keyFrame: 4015
     hide: 0
-  - position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
-    keyTime: 167
-    changeText: 0
-    hide: 1
+  hideText: 1
   profile: {fileID: 11400000, guid: 42d42946b0e5ff44b9ea62ec784cd894, type: 2}
   updateColorFromValence: 1
   forceSynchronize: 1
   timeValue: 0.5
-  activeCut: 0
-  timestampCut: 0
-  time: 0

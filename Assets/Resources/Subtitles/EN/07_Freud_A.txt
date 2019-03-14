@@ -94,7 +94,7 @@ And ?
 - Who ?
 
 24
-00:01:17:80 --> 00:01:18,440
+00:01:17,080 --> 00:01:18,440
 - Anybody.
 
 25
@@ -184,7 +184,7 @@ to try with me ?
 Try if you like,
 
 44
-00:03:16:07 --> 00:03:19:500
+00:03:16,07 --> 00:03:19,500
 I so want to sleep
 and never reawaken.
 
@@ -408,7 +408,7 @@ Go to the window.
 Go !
 
 95
-00:06:22:800 --> 00:06:25,400
+00:06:22,800 --> 00:06:25,400
 See the people passing by !
 
 96

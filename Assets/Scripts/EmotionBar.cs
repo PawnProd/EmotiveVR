@@ -33,6 +33,7 @@ public class EmotionBar : MonoBehaviour
 
     private Vector3 _startPosition;
 
+
     private void Start()
     {
         _startPosition = GetComponent<RectTransform>().anchoredPosition;
@@ -83,10 +84,7 @@ public class EmotionBar : MonoBehaviour
 
     public void MapBarInfo(List<Sequence.BarPositionInfo> barInfos)
     {
-        _timer = 0;
         _infoIndex = 0;
-        _waitNextPlanTime = 0;
-        _waitTimer = false;
         _infos = barInfos;
     }
 
@@ -121,6 +119,27 @@ public class EmotionBar : MonoBehaviour
     public void ResetPosition()
     {
         GetComponent<RectTransform>().anchoredPosition = _startPosition;
+    }
+
+    public void UpdateBar(long frame)
+    {
+        Debug.Log("Infos Index = " + _infoIndex);
+        Debug.Log("Infos Frame = " + _infos[_infoIndex].keyFrame);
+        Debug.Log("Frame = " + frame);
+        if(frame >= _infos[_infoIndex].keyFrame)
+        {
+            Debug.Log("Coucou");
+            if (_infos[_infoIndex].hide)
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                transform.position = _infos[_infoIndex].position;
+                transform.rotation = Quaternion.Euler(_infos[_infoIndex].rotation);
+            }
+            ++_infoIndex;
+        }
     }
 
     private void Update()
@@ -158,39 +177,6 @@ public class EmotionBar : MonoBehaviour
             {
                 LerpBlue(DirectorSequencer.Instance.updateValenceTime, _startAmountValue, _endAmountValue);
             }
-        }
-
-
-        if(_infoIndex < _infos.Count)
-        {
-            _timer += Time.deltaTime;
-
-            _waitTimer = _timer <= _waitNextPlanTime;
-            if (!_waitTimer)
-            {
-                Sequence.BarPositionInfo info = _infos[_infoIndex];
-                transform.position = info.position;
-                transform.rotation = Quaternion.Euler(info.rotation);
-
-                if(_infos[_infoIndex].changeText)
-                {
-                ShowOrHideText(true);
-                SetText("SEQUENCE INTERACTIVE", "Le feedback visuel de vos émotions en temps réel apparaîtra sur le miroir de la chambre.");
-                }
-
-            if(_infos[_infoIndex].hide)
-            {
-                    gameObject.SetActive(false);
-            }
-
-                if(_infoIndex + 1 < _infos.Count)
-                    _waitNextPlanTime = _infos[_infoIndex + 1].keyTime;
-
-                _waitTimer = true;
-                ++_infoIndex;
-            }
-
-
         }
     }
 

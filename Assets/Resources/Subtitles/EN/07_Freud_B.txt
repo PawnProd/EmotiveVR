@@ -285,7 +285,7 @@ Is the session over ?
 - Yes
 
 65
-00:04:15,240 --> 00:04:16:05
+00:04:15,240 --> 00:04:16,05
 When will you come back ?
 
 66

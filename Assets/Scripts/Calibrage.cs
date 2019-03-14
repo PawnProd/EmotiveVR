@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Calibrage : MonoBehaviour
 {
     public List<Sprite> calibrationImages;
-    public SpriteRenderer imgRenderer;
+    public Image imgRenderer;
     public int nbImgToShow = 5;
     public float timeShowImg = 10;
 
@@ -16,6 +17,7 @@ public class Calibrage : MonoBehaviour
     private void Start()
     {
         DirectorSequencer.Instance.delay = (nbImgToShow * timeShowImg) + DirectorSequencer.Instance.fadeAnimator.GetCurrentAnimatorStateInfo(0).length;
+        imgRenderer.transform.parent.GetComponent<Canvas>().worldCamera = DirectorSequencer.Instance.cam;
     }
 
 

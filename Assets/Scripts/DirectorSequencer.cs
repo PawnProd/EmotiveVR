@@ -48,15 +48,12 @@ public class DirectorSequencer : MonoBehaviour
     public bool waitEndScene = false;
     public bool activeRaycast = false;
     public bool showEpilogue = false;
+    public bool updateBarPos = false;
 
-    private float _timerChoice = 0;
-    private float _timerCut = 0;
+    private readonly float _timerChoice = 0;
 
     private Quaternion startRotation;
     private GameObject _hitObject;
-
-    private bool _cut;
-    private bool _resumeVideo;
 
     private void Awake()
     {
@@ -73,7 +70,7 @@ public class DirectorSequencer : MonoBehaviour
             cam = allCameras[0];
             cam.gameObject.SetActive(true);
         }
-
+        startRotation = cam.transform.rotation;
         canvasSubtitle.worldCamera = cam;
     }
 
@@ -157,31 +154,12 @@ public class DirectorSequencer : MonoBehaviour
                     _hitObject = null;
                 }
             }
+        }
 
-            if (currentSequence.activeCut && fadeDone)
-            {
-                _timerCut += Time.deltaTime;
-
-                if (_timerCut >= currentSequence.timestampCut)
-                {
-                    fadeDone = false;
-                    _cut = true;
-
-                    if (!vr)
-                        StartCoroutine(CO_FadeIn());
-                    else
-                        StartCoroutine(CO_FadeInVR());
-
-                    _timerCut = 0;
-                }
-
-                if (cutPlayer.isPlaying && _timerCut >= currentSequence.time)
-                {
-                    fadeDone = false;
-                    EndCut();
-                    _timerCut = 0;
-                }
-            }
+        if(updateBarPos)
+        {
+            
+            emotionalBar.GetComponent<EmotionBar>().UpdateBar(player.frame);
         }
        
     }
@@ -191,6 +169,7 @@ public class DirectorSequencer : MonoBehaviour
         if (!choice.nextSequence)
         {
             AddSequences(choice.GetSequence());
+            srtManager.AddSubtitles(choice.GetSequence());
         }
 
         activeRaycast = false;
@@ -231,12 +210,6 @@ public class DirectorSequencer : MonoBehaviour
         // We reset the camera rotation to avoid some bug in the choice scene
         cam.transform.rotation = startRotation;
 
-        if(currentSequence.cutSequence)
-        {
-            SetCut();
-        }
-
-
         emotionalBar.SetActive(currentSequence.showEmotionalBar);
 
         // SETUP ADDITIONAL SCENE
@@ -276,7 +249,10 @@ public class DirectorSequencer : MonoBehaviour
             if(currentSequence.barInfo.Count > 0)
             {
                 emotionalBar.GetComponent<EmotionBar>().MapBarInfo(currentSequence.barInfo);
+                updateBarPos = true;
             }
+
+            emotionalBar.GetComponent<EmotionBar>().ShowOrHideText(currentSequence.hideText);
         }
 
         // SETUP AUDIO
@@ -300,17 +276,11 @@ public class DirectorSequencer : MonoBehaviour
             cam.GetComponent<CameraManager>().SetPostProcess(false, null);
         }
 
-        if(currentSequence.activeCut)
-        {
-            emotionalBar.GetComponent<EmotionBar>().ShowOrHideText(false);
-        }
-
         if(activeSubtitle)
         {
             srtManager.SetSubtitles(currentSequence.name);
         }
 
-        Debug.Log("Start Fade out!");
         if(vr)
         {
             StartCoroutine(CO_FadeOutVR());
@@ -319,8 +289,6 @@ public class DirectorSequencer : MonoBehaviour
         {
             StartCoroutine(CO_FadeOut());
         }
-        
-        Debug.Log("Coroutine de merde !");
 
         ++indexSequence;
     }
@@ -365,94 +333,19 @@ public class DirectorSequencer : MonoBehaviour
 
     #endregion
 
-    #region Cut
-
-    private void SetCut()
-    {
-        emotionalBar.GetComponent<EmotionBar>().ResetPosition();
-        emotionalBar.GetComponent<EmotionBar>().ShowOrHideText(true);
-        emotionalBar.GetComponent<EmotionBar>().SetText("SEQUENCE INTERACTIVE", "Le feedback visuel de vos émotions en temps réel apparaîtra sur le miroir de la chambre.");
-    }
-
-    private void CutVideo()
-    {
-        Debug.Log("Cut Video");
-        emotionalBar.SetActive(false);
-        player.Pause();
-        audioManager.Pause();
-        RenderSettings.skybox.mainTexture = cutRt;
-        if (vr)
-        {
-            StartCoroutine(CO_FadeOutVR());
-        }
-        else
-        {
-            StartCoroutine(CO_FadeOut());
-        }
-    }
-
-    private void EndCut()
-    {
-        cutPlayer.Stop();
-        _resumeVideo = true;
-
-        if (!vr)
-            StartCoroutine(CO_FadeIn());
-        else
-            StartCoroutine(CO_FadeInVR());
-    }
-
-    private void ResumeVideo()
-    {
-        RenderSettings.skybox.mainTexture = currentSequence.rt;
-        if (vr)
-        {
-            StartCoroutine(CO_FadeOutVR());
-        }
-        else
-        {
-            StartCoroutine(CO_FadeOut());
-        }
-    }
-    #endregion
 
     #region Fade Event
 
     public void EndFadeIn()
     {
-        if (_cut)
-        {
-            CutVideo();
-        }
-        else if(_resumeVideo)
-        {
-            ResumeVideo();
-        }
-        else
-        {
-            PrepareVideo();
-        }
+        PrepareVideo();
     }
 
     public void EndFadeOut()
     {
-        if (_cut)
-        {
-            _cut = false;
-            cutPlayer.Play();
-        }
-        else if (_resumeVideo)
-        {
-            _resumeVideo = false;
-            player.Play();
-            audioManager.Resume();
-        }
-        else
-        {
-            StartCoroutine(srtManager.Begin());
-            play = true;
-            player.Play();
-        }
+        StartCoroutine(srtManager.Begin());
+        play = true;
+        player.Play();
     }
     #endregion
 

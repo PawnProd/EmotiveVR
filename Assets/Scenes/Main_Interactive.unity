@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -961,80 +961,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675108731}
   m_Enabled: 0
---- !u!1 &872801640
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 872801642}
-  - component: {fileID: 872801641}
-  m_Layer: 0
-  m_Name: "TestG\xE9n\xE9rique"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &872801641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872801640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20882a2f2fdaaed4890d1bb769c67ee3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indexSequence: 1
-  sequences:
-  - {fileID: 11400000, guid: ddea97d63b05b014c910de1b531ca1fc, type: 2}
-  - {fileID: 11400000, guid: 59c8a996d22737a41843adf449d886c6, type: 2}
-  currentSequence: {fileID: 0}
-  timeToChoice: 10
-  timer: 0
-  delay: 0
-  updateValenceTime: 2
-  synchronizeTimer: 0
-  timeToFade: 2
-  loadedSceneName: 
-  activeSubtitle: 1
-  vr: 1
-  allCameras:
-  - {fileID: 534669904}
-  - {fileID: 1130044771}
-  srtManager: {fileID: 252231315}
-  player: {fileID: 467860232}
-  cutPlayer: {fileID: 1916942572}
-  emotionalBar: {fileID: 1625459616}
-  audioManager: {fileID: 1192114250}
-  fadeAnimator: {fileID: 268911310}
-  cutRt: {fileID: 8400000, guid: 0edf8055d457b5b4c844771a311ce83f, type: 2}
-  canvasSubtitle: {fileID: 1879567134}
-  cam: {fileID: 534669904}
-  play: 0
-  fadeDone: 0
-  waitEndScene: 0
-  activeRaycast: 0
-  showEpilogue: 0
---- !u!4 &872801642
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872801640}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1130044770
 PrefabInstance:
   m_ObjectHideFlags: 0

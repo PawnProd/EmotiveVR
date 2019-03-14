@@ -85,6 +85,8 @@ public class DirectorSequencer : MonoBehaviour
         // Add a callback when the video is finished
         player.loopPointReached += EndVideo;
 
+        player.EnableAudioTrack(0, false);
+
         // Read all the valence data in the csv file
         DataReader.Init("Data_Valence.csv");
         player.playOnAwake = false;
@@ -136,51 +138,22 @@ public class DirectorSequencer : MonoBehaviour
                 {
                     if (hit.collider != null)
                     {
-                        if (hit.collider.CompareTag("Choice") && _hitObject != hit.collider.gameObject)
+                        Debug.Log("Hit with " + hit.collider.name);
+                        if (_hitObject != null && _hitObject != hit.collider.gameObject)
                         {
-                            if (_hitObject != null)
-                            {
-                                if(_hitObject.GetComponent<ChoiceSequence>().invert)
-                                {
-                                    _hitObject.GetComponent<ChoiceSequence>().FadeInSequence();
-                                }
-                                else
-                                {
-                                    _hitObject.GetComponent<ChoiceSequence>().FadeOutSequence();
-                                }
-                                
-                                _hitObject.GetComponent<ChoiceSequence>().ActiveEffect(false);
-                            }
-                                
-
-                            _timerChoice = 0;
-                            _hitObject = hit.collider.gameObject;
-                            _hitObject.GetComponent<ChoiceSequence>().ActiveEffect(true);
-                            _hitObject.GetComponent<AudioSource>().Play();
+                            _hitObject.GetComponent<ChoiceSequence>().OnRaycastExit();
                         }
-                        else if (_hitObject == hit.collider.gameObject)
-                        {
-                            _timerChoice += Time.deltaTime;
 
-                            if (_timerChoice >= timeToChoice)
-                            {
-                                ValidateChoice(_hitObject.GetComponent<ChoiceSequence>());
-                            }
-                        }
+                        _hitObject = hit.collider.gameObject;
+                        _hitObject.GetComponent<ChoiceSequence>().OnRaycastEnter();
                     }
-
+                   
                 }
-                else if (_hitObject != null)
+                else
                 {
-                    if (_hitObject.GetComponent<ChoiceSequence>().invert)
-                    {
-                        _hitObject.GetComponent<ChoiceSequence>().FadeOutSequence();
-                    }
-                    else
-                    {
-                        _hitObject.GetComponent<ChoiceSequence>().FadeInSequence();
-                    }
-                    _hitObject.GetComponent<ChoiceSequence>().ActiveEffect(false);
+                    if(_hitObject != null)
+                        _hitObject.GetComponent<ChoiceSequence>().OnRaycastExit();
+
                     _hitObject = null;
                 }
             }

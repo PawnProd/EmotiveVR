@@ -95,7 +95,8 @@ public class DirectorSequencer : MonoBehaviour
         // Read all the valence data in the csv file
         DataReader.Init("Data_Valence.csv");
         player.playOnAwake = false;
-        PrepareVideo();
+        
+		PrepareVideo();
     }
 
     private void Update()
@@ -103,14 +104,13 @@ public class DirectorSequencer : MonoBehaviour
         if(currentSequence != null)
         {
             // If we load an additional scene and we didn't wait an interaction
-            if (waitEndScene && !activeRaycast)
+            if (waitEndScene && !currentSequence.waitInteraction)
             {
                 timer += Time.deltaTime;
                 if (timer >= delay)
                 {
                     waitEndScene = false;
                     timer = 0;
-                    RemoveScene();
 
                     if(!vr)
                         StartCoroutine(CO_FadeIn());
@@ -180,9 +180,8 @@ public class DirectorSequencer : MonoBehaviour
             srtManager.AddSubtitles(choice.GetSequence());
         }
 
-        activeRaycast = false;
+		activeRaycast = false;
         showEpilogue = true;
-        RemoveScene();
 
         if (!vr)
             StartCoroutine(CO_FadeIn());
@@ -193,6 +192,7 @@ public class DirectorSequencer : MonoBehaviour
 
     private void PrepareVideo()
     {
+		Debug.Log("Next Sequence");
         play = false;
         if (indexSequence < sequences.Count)
         {
@@ -298,6 +298,9 @@ public class DirectorSequencer : MonoBehaviour
             StartCoroutine(CO_FadeOut());
         }
 
+		play = true;
+		player.Play();
+		StartCoroutine(srtManager.Begin());
         ++indexSequence;
     }
 
@@ -346,13 +349,17 @@ public class DirectorSequencer : MonoBehaviour
 
     public void EndFadeIn()
     {
+		if(currentSequence.addScene)
+		{
+			Debug.Log("Remove Scene");
+			RemoveScene();
+		}
         PrepareVideo();
     }
 
     public void EndFadeOut()
     {
-        play = true;
-        player.Play();
+        
     }
     #endregion
 
@@ -369,7 +376,8 @@ public class DirectorSequencer : MonoBehaviour
     // Unload an scene
     private void RemoveScene()
     {
-        SceneManager.UnloadSceneAsync(loadedSceneName);
+		waitEndScene = false;
+		SceneManager.UnloadSceneAsync(loadedSceneName);
     }
     #endregion
 
@@ -413,8 +421,7 @@ public class DirectorSequencer : MonoBehaviour
         {
             if (!string.IsNullOrEmpty(evtName))
             {
-                audioManager.SetEvent(evtName, currentSequence.delay);
-				StartCoroutine(srtManager.Begin());
+				audioManager.SetEvent(evtName, currentSequence.delay);
             }
         }
     }
@@ -445,9 +452,9 @@ public class DirectorSequencer : MonoBehaviour
     {
         Debug.Log("Fade In VR!");
 
-        sphereFade.SetTrigger("FadeIn");
+        sphereFade.SetBool("FadeIn", true);
 
-        yield return new WaitForSeconds(sphereFade.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(sphereFade.GetCurrentAnimatorStateInfo(0).length + 1);
 
         EndFadeIn();
         yield return null;
@@ -458,10 +465,10 @@ public class DirectorSequencer : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         Debug.Log("Fade Out VR!");
-
-        sphereFade.SetTrigger("FadeOut");
+		sphereFade.SetBool("FadeIn", false);
+        sphereFade.SetBool("FadeOut", true);
         yield return new WaitForSeconds(sphereFade.GetCurrentAnimatorStateInfo(0).length);
-
+		sphereFade.SetBool("FadeOut", false);
         fadeDone = true;
         EndFadeOut();
         yield return null;

@@ -108,12 +108,12 @@ public class EmotionBar : MonoBehaviour
         subtitle.text = sSubtitle;
     }
 
-    public void ShowOrHideText(bool show)
+    public void ShowOrHideText(bool hide)
     {
-        title.gameObject.SetActive(show);
-        subtitle.gameObject.SetActive(show);
-        plus.gameObject.SetActive(show);
-        minus.gameObject.SetActive(show);
+		title.gameObject.SetActive(!hide);
+		subtitle.gameObject.SetActive(!hide);
+		plus.gameObject.SetActive(!hide);
+		minus.gameObject.SetActive(!hide);
     }
 
     public void ResetPosition()
@@ -123,12 +123,8 @@ public class EmotionBar : MonoBehaviour
 
     public void UpdateBar(long frame)
     {
-        Debug.Log("Infos Index = " + _infoIndex);
-        Debug.Log("Infos Frame = " + _infos[_infoIndex].keyFrame);
-        Debug.Log("Frame = " + frame);
         if(frame >= _infos[_infoIndex].keyFrame)
         {
-            Debug.Log("Coucou");
             if (_infos[_infoIndex].hide)
             {
                 gameObject.SetActive(false);

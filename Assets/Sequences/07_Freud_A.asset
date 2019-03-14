@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6cfb532e7f4f6d469a4d9de4a5aa26f, type: 3}
   m_Name: 07_Freud_A
   m_EditorClassIdentifier: 
-  clip: {fileID: 32900000, guid: 803681e50e73ef64da96c354d505aaa2, type: 3}
+  clip: {fileID: 32900000, guid: afd6b1d6815899940ae3272a95d97a98, type: 3}
   rt: {fileID: 8400000, guid: b5ba5d471d3d12c408bce8de8401b940, type: 2}
   cutSequence: 0
   showEmotionalBar: 0
@@ -27,10 +27,8 @@ MonoBehaviour:
   - PlayFreudAudio
   delay: 0
   barInfo: []
+  hideText: 0
   profile: {fileID: 0}
   updateColorFromValence: 0
   forceSynchronize: 1
   timeValue: 0.5
-  activeCut: 0
-  timestampCut: 0
-  time: 0

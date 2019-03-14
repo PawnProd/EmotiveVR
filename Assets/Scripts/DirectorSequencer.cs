@@ -39,6 +39,7 @@ public class DirectorSequencer : MonoBehaviour
     public Animator fadeAnimator;
     public RenderTexture cutRt;
     public Canvas canvasSubtitle;
+	public GameObject sphereFade;
 
     [HideInInspector] public Camera cam;
 
@@ -56,6 +57,8 @@ public class DirectorSequencer : MonoBehaviour
     private GameObject _hitObject;
 
     private SteamVR_LoadLevel vrSceneManager;
+
+	private Material sphereFadeMat;
 
     private void Awake()
     {
@@ -81,6 +84,8 @@ public class DirectorSequencer : MonoBehaviour
         vrSceneManager = GetComponent<SteamVR_LoadLevel>();
         vrSceneManager.fadeInTime = timeToFade;
         vrSceneManager.fadeOutTime = timeToFade;
+
+		sphereFadeMat = GetComponent<MeshRenderer>().material;
 
         if(activeSubtitle)
             srtManager.Init(sequences);
@@ -349,7 +354,6 @@ public class DirectorSequencer : MonoBehaviour
 
     public void EndFadeOut()
     {
-        StartCoroutine(srtManager.Begin());
         play = true;
         player.Play();
     }
@@ -359,16 +363,7 @@ public class DirectorSequencer : MonoBehaviour
     // Load an additional scene in Additive Mode
     private void AddScene(Sequence sequence)
     {
-        if (vr)
-        {
-            vrSceneManager.levelName = sequence.sceneNameToLoad;
-            vrSceneManager.Trigger();
-        }
-        else
-        {
-            SceneManager.LoadSceneAsync(sequence.sceneNameToLoad, LoadSceneMode.Additive);
-        }
-           
+        SceneManager.LoadSceneAsync(sequence.sceneNameToLoad, LoadSceneMode.Additive);
         waitEndScene = true;
         loadedSceneName = sequence.sceneNameToLoad;
         
@@ -422,6 +417,7 @@ public class DirectorSequencer : MonoBehaviour
             if (!string.IsNullOrEmpty(evtName))
             {
                 audioManager.SetEvent(evtName, currentSequence.delay);
+				StartCoroutine(srtManager.Begin());
             }
         }
     }
@@ -451,8 +447,7 @@ public class DirectorSequencer : MonoBehaviour
     IEnumerator CO_FadeInVR()
     {
         Debug.Log("Fade In VR!");
-        SteamVR_Fade.Start(Color.clear, 0);
-        SteamVR_Fade.Start(Color.black, timeToFade);
+        
 
         yield return new WaitForSeconds(timeToFade);
 
@@ -465,8 +460,7 @@ public class DirectorSequencer : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         Debug.Log("Fade Out VR!");
-        SteamVR_Fade.Start(Color.black, 0);
-        SteamVR_Fade.Start(Color.clear, timeToFade);
+
 
         yield return new WaitForSeconds(timeToFade);
 

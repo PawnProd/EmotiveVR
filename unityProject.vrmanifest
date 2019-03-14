@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.emotivevr_prototype.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "D:\\EmotiveVR\\EmotiveVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "EmotiveVR_Prototype [Testing]"
+        }
+      }
+    }
+  ]
+}

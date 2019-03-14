@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6cfb532e7f4f6d469a4d9de4a5aa26f, type: 3}
   m_Name: 01_Introduction
   m_EditorClassIdentifier: 
-  clip: {fileID: 32900000, guid: 9323054368234364eb33462be375cfac, type: 3}
+  clip: {fileID: 32900000, guid: d7bdafaf54782cd4bb44fabf82711568, type: 3}
   rt: {fileID: 8400000, guid: 53ae36cdfab4f7b40bfd6031977931f3, type: 2}
   cutSequence: 0
   showEmotionalBar: 0
@@ -27,10 +27,8 @@ MonoBehaviour:
   - PlayIntroduction1
   delay: 0
   barInfo: []
+  hideText: 0
   profile: {fileID: 0}
   updateColorFromValence: 0
   forceSynchronize: 0
   timeValue: 0
-  activeCut: 0
-  timestampCut: 0
-  time: 0

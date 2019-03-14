@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6cfb532e7f4f6d469a4d9de4a5aa26f, type: 3}
   m_Name: 07_Freud_B
   m_EditorClassIdentifier: 
-  clip: {fileID: 32900000, guid: 395d4e2f1163ec44f9548ae8743b179f, type: 3}
+  clip: {fileID: 32900000, guid: fa0f908748f5a324cbba09da32b18aba, type: 3}
   rt: {fileID: 8400000, guid: 8df5dc3aa0f933f469bdf0e4b031c7f3, type: 2}
   cutSequence: 0
   showEmotionalBar: 1

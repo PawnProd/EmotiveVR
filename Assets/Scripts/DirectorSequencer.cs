@@ -55,6 +55,8 @@ public class DirectorSequencer : MonoBehaviour
     private Quaternion startRotation;
     private GameObject _hitObject;
 
+    private SteamVR_LoadLevel vrSceneManager;
+
     private void Awake()
     {
         Instance = this;
@@ -76,6 +78,10 @@ public class DirectorSequencer : MonoBehaviour
 
     private void Start()
     {
+        vrSceneManager = GetComponent<SteamVR_LoadLevel>();
+        vrSceneManager.fadeInTime = timeToFade;
+        vrSceneManager.fadeOutTime = timeToFade;
+
         if(activeSubtitle)
             srtManager.Init(sequences);
 
@@ -353,7 +359,16 @@ public class DirectorSequencer : MonoBehaviour
     // Load an additional scene in Additive Mode
     private void AddScene(Sequence sequence)
     {
-        SceneManager.LoadScene(sequence.sceneNameToLoad, LoadSceneMode.Additive);
+        if (vr)
+        {
+            vrSceneManager.levelName = sequence.sceneNameToLoad;
+            vrSceneManager.Trigger();
+        }
+        else
+        {
+            SceneManager.LoadSceneAsync(sequence.sceneNameToLoad, LoadSceneMode.Additive);
+        }
+           
         waitEndScene = true;
         loadedSceneName = sequence.sceneNameToLoad;
         

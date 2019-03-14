@@ -413,7 +413,6 @@ public class DirectorSequencer : MonoBehaviour
 
     IEnumerator CO_FadeIn()
     {
-        Debug.Log("Fade In !");
         fadeDone = false;
         fadeAnimator.SetTrigger("FadeIn");
 
@@ -425,7 +424,6 @@ public class DirectorSequencer : MonoBehaviour
 
     IEnumerator CO_FadeOut()
     {
-        Debug.Log("Fade Out!");
         fadeAnimator.SetTrigger("FadeOut");
 
         yield return new WaitForSeconds(fadeAnimator.GetCurrentAnimatorStateInfo(0).length);
@@ -449,7 +447,9 @@ public class DirectorSequencer : MonoBehaviour
 
     IEnumerator CO_FadeOutVR()
     {
-        
+        yield return new WaitForSeconds(1);
+
+        Debug.Log("Fade Out VR!");
         SteamVR_Fade.Start(Color.black, 0);
         SteamVR_Fade.Start(Color.clear, timeToFade);
 

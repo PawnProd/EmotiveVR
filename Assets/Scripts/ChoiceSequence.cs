@@ -65,7 +65,8 @@ public class ChoiceSequence : MonoBehaviour
 
     public void ActiveEffect(bool active)
     {
-        effect.SetActive(active);
+		if(gameObject.activeSelf)
+        	effect.SetActive(active);
     }
 
     public void OnRaycastEnter()

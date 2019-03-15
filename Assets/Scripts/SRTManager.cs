@@ -114,7 +114,7 @@ public class SRTManager : MonoBehaviour
 
                     case ReaderState.TEXT:
 
-                        text += lines[i] ;
+                        text += lines[i] + " ";
                         if (string.IsNullOrEmpty(lines[i]) || i == lines.Length - 1)
                         {
                             subtitles.Add(new Subtitle(index, currentFrom, currentTo, text));

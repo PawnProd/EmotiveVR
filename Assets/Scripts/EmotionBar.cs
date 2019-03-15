@@ -6,6 +6,8 @@ using TMPro;
 
 public class EmotionBar : MonoBehaviour
 {
+	public GameObject background;
+
     public Image barPos;
     public Image barNeg;
 
@@ -115,6 +117,11 @@ public class EmotionBar : MonoBehaviour
 		plus.gameObject.SetActive(!hide);
 		minus.gameObject.SetActive(!hide);
     }
+
+	public void ShowOrHideBackground(bool show)
+	{
+		background.SetActive(show);
+	}
 
     public void ResetPosition()
     {

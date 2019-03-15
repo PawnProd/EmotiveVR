@@ -52,6 +52,7 @@ public class DirectorSequencer : MonoBehaviour
     public bool updateBarPos = false;
 
     private readonly float _timerChoice = 0;
+	private float _timerManualSubtitle = 0;
 
     private Quaternion startRotation;
     private GameObject _hitObject;
@@ -192,7 +193,6 @@ public class DirectorSequencer : MonoBehaviour
 
     private void PrepareVideo()
     {
-		Debug.Log("Next Sequence");
         play = false;
         if (indexSequence < sequences.Count)
         {
@@ -260,6 +260,7 @@ public class DirectorSequencer : MonoBehaviour
                 updateBarPos = true;
             }
 
+			emotionalBar.GetComponent<EmotionBar>().ShowOrHideBackground(currentSequence.showBackground);
             emotionalBar.GetComponent<EmotionBar>().ShowOrHideText(currentSequence.hideText);
         }
 
@@ -351,7 +352,6 @@ public class DirectorSequencer : MonoBehaviour
     {
 		if(currentSequence.addScene)
 		{
-			Debug.Log("Remove Scene");
 			RemoveScene();
 		}
         PrepareVideo();

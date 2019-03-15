@@ -15,7 +15,7 @@ MonoBehaviour:
   clip: {fileID: 32900000, guid: a9f58d61bcce16242b113f17dc5b3ccb, type: 3}
   rt: {fileID: 8400000, guid: eb58606eb91a54b49820be102a0d83ba, type: 2}
   cutSequence: 0
-  showEmotionalBar: 0
+  showEmotionalBar: 1
   addScene: 0
   waitInteraction: 0
   clearVideo: 0
@@ -26,8 +26,13 @@ MonoBehaviour:
   audioEvtNames:
   - PlayEndMusic
   delay: 0
-  barInfo: []
-  hideText: 0
+  barInfo:
+  - position: {x: 68, y: -17.2, z: 0}
+    rotation: {x: 0, y: 90, z: 0}
+    keyFrame: 0
+    hide: 0
+  hideText: 1
+  showBackground: 1
   profile: {fileID: 0}
   updateColorFromValence: 0
   forceSynchronize: 0

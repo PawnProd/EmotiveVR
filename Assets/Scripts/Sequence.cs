@@ -17,7 +17,6 @@ public class Sequence : ScriptableObject
         public bool hide;
     }
 
-
     [Header("Video Data")]
     public VideoClip clip;
     public RenderTexture rt;
@@ -42,6 +41,7 @@ public class Sequence : ScriptableObject
     [Header("Emotional Bar Param")]
     public List<BarPositionInfo> barInfo;
     public bool hideText;
+	public bool showBackground;
 
     [Header("Post Process")]
     public PostProcessProfile profile;

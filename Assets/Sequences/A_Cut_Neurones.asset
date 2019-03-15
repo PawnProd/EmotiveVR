@@ -18,7 +18,7 @@ MonoBehaviour:
   showEmotionalBar: 1
   addScene: 0
   waitInteraction: 0
-  clearVideo: 0
+  clearVideo: 1
   usePostProcess: 0
   sceneNameToLoad: 
   delayBeforeNextSequence: 5
@@ -27,6 +27,7 @@ MonoBehaviour:
   delay: 0
   barInfo: []
   hideText: 1
+  showBackground: 0
   profile: {fileID: 0}
   updateColorFromValence: 0
   forceSynchronize: 0

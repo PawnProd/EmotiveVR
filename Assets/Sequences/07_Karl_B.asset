@@ -34,8 +34,9 @@ MonoBehaviour:
   - position: {x: 68, y: 0, z: 0}
     rotation: {x: 0, y: 90, z: 0}
     keyFrame: 4015
-    hide: 0
+    hide: 1
   hideText: 1
+  showBackground: 0
   profile: {fileID: 11400000, guid: 42d42946b0e5ff44b9ea62ec784cd894, type: 2}
   updateColorFromValence: 1
   forceSynchronize: 1

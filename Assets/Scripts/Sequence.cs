@@ -23,11 +23,13 @@ public class Sequence : ScriptableObject
 
     [Header("Parameters")]
     public bool cutSequence;
+    public bool videoLoop;
     public bool showEmotionalBar;
     public bool addScene;
     public bool waitInteraction;
     public bool clearVideo;
     public bool usePostProcess;
+    public bool epilogue;
 
     [Header("Additional Behaviors")]
     public string sceneNameToLoad;

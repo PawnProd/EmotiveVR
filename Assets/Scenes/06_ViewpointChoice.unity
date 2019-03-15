@@ -136,7 +136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207084158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 599, y: -556, z: -11}
+  m_LocalPosition: {x: 588, y: -556, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 993385113}
@@ -387,7 +387,12 @@ PrefabInstance:
     - target: {fileID: 224266873754780968, guid: 2225a3aefcf743146acf6ce5f5a0e35c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 75
+      value: 75.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 224266873754780968, guid: 2225a3aefcf743146acf6ce5f5a0e35c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 11.18
       objectReference: {fileID: 0}
     - target: {fileID: 224414266430510380, guid: 2225a3aefcf743146acf6ce5f5a0e35c,
         type: 3}
@@ -402,7 +407,12 @@ PrefabInstance:
     - target: {fileID: 224414266430510380, guid: 2225a3aefcf743146acf6ce5f5a0e35c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 75
+      value: 75.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 224414266430510380, guid: 2225a3aefcf743146acf6ce5f5a0e35c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 8.94
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2225a3aefcf743146acf6ce5f5a0e35c, type: 3}
@@ -693,7 +703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 90.00001, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 48.76248, y: 28.697144}
+  m_AnchoredPosition: {x: 54, y: 28.697144}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1226244382
@@ -811,6 +821,7 @@ MonoBehaviour:
   blockHide: 0
   epilogue: 0
   invert: 0
+  audioToFade: {fileID: 1320922522}
 --- !u!114 &1226244388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,6 +1087,7 @@ MonoBehaviour:
   blockHide: 0
   epilogue: 0
   invert: 0
+  audioToFade: {fileID: 1226244389}
 --- !u!114 &1320922521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1311,8 +1323,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 119.29
-  m_fontSizeBase: 119.29
+  m_fontSize: 71.5
+  m_fontSizeBase: 71.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1438,6 +1450,7 @@ MonoBehaviour:
   blockHide: 1
   epilogue: 1
   invert: 1
+  audioToFade: {fileID: 1840509100}
 --- !u!65 &1840509099
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1449,7 +1462,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 1, z: 1}
+  m_Size: {x: 10, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &1840509100
 AudioSource:

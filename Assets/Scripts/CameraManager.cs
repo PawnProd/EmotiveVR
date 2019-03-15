@@ -46,6 +46,11 @@ public class CameraManager : MonoBehaviour
 
     }
 
+    public void DisablePostProcess()
+    {
+        volume.enabled = false;
+    }
+
     public void UpdateFilterColor(float valence)
     {
         if(_colorGradingLayer == null)

@@ -11,6 +11,8 @@ public class ChoiceSequence : MonoBehaviour
     public bool epilogue = false;
     public bool invert = false;
 
+    public AudioSource audioToFade;
+
     private float _fadePercent = 1;
     private bool _raycastEnter;
     private float _timer = 0;
@@ -42,11 +44,19 @@ public class ChoiceSequence : MonoBehaviour
         while (_fadePercent > 0)
         {
             _fadePercent -= Time.deltaTime * (1 / DirectorSequencer.Instance.timeToChoice) * speed;
-            GetComponent<AudioSource>().volume = _fadePercent;
+            if(epilogue)
+            {
+                audioToFade.volume = _fadePercent * 5;
+            }
+            else
+            {
+                audioToFade.volume = 0;
+            }
+            
             yield return null;
         }
         _fadePercent = 0;
-        GetComponent<AudioSource>().volume = 0;
+        audioToFade.volume = 0;
     }
 
     IEnumerator CO_FadeInChoiceSequence(float speed)
@@ -54,12 +64,19 @@ public class ChoiceSequence : MonoBehaviour
         while (_fadePercent < 1)
         {
             _fadePercent += Time.deltaTime * (1 / DirectorSequencer.Instance.timeToChoice) * speed;
-            GetComponent<AudioSource>().volume = _fadePercent;
+            if (epilogue)
+            {
+                audioToFade.volume = _fadePercent * 5;
+            }
+            else
+            {
+                audioToFade.volume = 1;
+            }
             yield return null;
         }
 
         _fadePercent = 1;
-        GetComponent<AudioSource>().volume = 1;
+        audioToFade.volume = 1;
 
     }
 
@@ -90,7 +107,7 @@ public class ChoiceSequence : MonoBehaviour
 
         _timer += Time.deltaTime;
 
-        if(_timer >= DirectorSequencer.Instance.timeToChoice)
+        if(_timer >= (epilogue ? DirectorSequencer.Instance.timerChoiceEpi : DirectorSequencer.Instance.timeToChoice))
         {
             DirectorSequencer.Instance.ValidateChoice(this);
         }

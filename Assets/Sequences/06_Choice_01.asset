@@ -15,11 +15,13 @@ MonoBehaviour:
   clip: {fileID: 32900000, guid: dfb17b534bcaf754c9ae8169387eec98, type: 3}
   rt: {fileID: 8400000, guid: 7048ddd7200750b4d8429b2c1ae46a10, type: 2}
   cutSequence: 0
+  videoLoop: 1
   showEmotionalBar: 0
   addScene: 1
   waitInteraction: 1
   clearVideo: 0
   usePostProcess: 0
+  epilogue: 0
   sceneNameToLoad: 06_ViewpointChoice
   delayBeforeNextSequence: 0
   soundBankName: Choice2SoundBank
@@ -29,6 +31,7 @@ MonoBehaviour:
   delay: 5
   barInfo: []
   hideText: 0
+  showBackground: 0
   profile: {fileID: 0}
   updateColorFromValence: 0
   forceSynchronize: 0

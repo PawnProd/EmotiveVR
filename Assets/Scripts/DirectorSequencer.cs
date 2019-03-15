@@ -17,7 +17,7 @@ public class DirectorSequencer : MonoBehaviour
 
     [Header("Parameters")]
     public float timeToChoice = 5;
-
+    public float timerChoiceEpi = 0;
     public float timer = 0;
     public float delay;
     public float updateValenceTime = 1;
@@ -202,6 +202,7 @@ public class DirectorSequencer : MonoBehaviour
                 SetupSequence(currentSequence);
                 player.Prepare();
                 player.prepareCompleted += SetNextVideo;
+                player.isLooping = currentSequence.videoLoop;
             }
             else
             {
@@ -215,11 +216,8 @@ public class DirectorSequencer : MonoBehaviour
     {
 
         player.prepareCompleted -= SetNextVideo;
-        // We reset the camera rotation to avoid some bug in the choice scene
-        cam.transform.rotation = startRotation;
 
         emotionalBar.SetActive(currentSequence.showEmotionalBar);
-
         // SETUP ADDITIONAL SCENE
         if (currentSequence.addScene)
         {
@@ -301,7 +299,16 @@ public class DirectorSequencer : MonoBehaviour
 
 		play = true;
 		player.Play();
-		StartCoroutine(srtManager.Begin());
+
+        if(currentSequence.epilogue)
+        {
+            StartCoroutine(CO_ForceSynchroEpilogue());
+        }
+        else
+        {
+            StartCoroutine(srtManager.Begin());
+        }
+		    
         ++indexSequence;
     }
 
@@ -385,7 +392,7 @@ public class DirectorSequencer : MonoBehaviour
     // Update every second the emotional bar if it is active
     IEnumerator CO_UpdateValenceTime()
     {
-        while(currentSequence.showEmotionalBar)
+        while(emotionalBar.activeSelf)
         {
             yield return new WaitForSeconds(updateValenceTime);
             DataReader.UpTime();
@@ -397,6 +404,8 @@ public class DirectorSequencer : MonoBehaviour
                 cam.GetComponent<CameraManager>().UpdateFilterColor(valence);
             }
         }
+
+        cam.GetComponent<CameraManager>().DisablePostProcess();
 
         yield return null;
     }
@@ -450,8 +459,6 @@ public class DirectorSequencer : MonoBehaviour
 
     IEnumerator CO_FadeInVR()
     {
-        Debug.Log("Fade In VR!");
-
         sphereFade.SetBool("FadeIn", true);
 
         yield return new WaitForSeconds(sphereFade.GetCurrentAnimatorStateInfo(0).length + 1);
@@ -464,7 +471,6 @@ public class DirectorSequencer : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
-        Debug.Log("Fade Out VR!");
 		sphereFade.SetBool("FadeIn", false);
         sphereFade.SetBool("FadeOut", true);
         yield return new WaitForSeconds(sphereFade.GetCurrentAnimatorStateInfo(0).length);
@@ -472,6 +478,13 @@ public class DirectorSequencer : MonoBehaviour
         fadeDone = true;
         EndFadeOut();
         yield return null;
+    }
+
+    IEnumerator CO_ForceSynchroEpilogue()
+    {
+        yield return new WaitForSeconds(4);
+
+        StartCoroutine(srtManager.Begin());
     }
     #endregion
 }
